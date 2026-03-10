@@ -1,0 +1,17 @@
+{
+  "name": "cadasto",
+  "owner": {
+    "name": "Cadasto B.V.",
+    "email": "info@cadasto.com"
+  },
+  "plugins": [
+    {
+      "name": "openehr-assistant",
+      "description": "AI plugin to assist on various openEHR related tasks",
+      "source": {
+        "source": "github",
+        "repo": "cadasto/openehr-assistant-plugin"
+      }
+    }
+  ]
+}

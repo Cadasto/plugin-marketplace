@@ -16,6 +16,14 @@
         "source": "github",
         "repo": "cadasto/openehr-assistant-plugin"
       }
+    },
+    {
+      "name": "openehr-assistant-dev",
+      "description": "Maintainer plugin for developing the openEHR Assistant MCP server and plugin",
+      "source": {
+        "source": "github",
+        "repo": "cadasto/openehr-assistant-dev-plugin"
+      }
     }
   ]
 }

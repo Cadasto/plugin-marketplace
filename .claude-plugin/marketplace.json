@@ -2,7 +2,7 @@
   "name": "cadasto",
   "metadata": {
     "description": "Claude Code plugin marketplace maintained by Cadasto B.V.",
-    "version": "1.2.0"
+    "version": "1.2.1"
   },
   "owner": {
     "name": "Cadasto B.V.",
@@ -26,7 +26,7 @@
       }
     },
     {
-      "name": "go-coding-plugin",
+      "name": "go-coding",
       "description": "Idiomatic Go coding standards for AI assistants — formatting, errors, concurrency, testing, layout.",
       "source": {
         "source": "github",

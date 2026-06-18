@@ -15,6 +15,7 @@ A **marketplace** is a curated catalog of plugins that you can browse, install, 
 | [openehr-assistant](https://github.com/Cadasto/openehr-assistant-plugin)         | AI plugin to assist on various openEHR related tasks                         |
 | [openehr-assistant-dev](https://github.com/Cadasto/openehr-assistant-dev-plugin) | Maintainer plugin for developing the openEHR Assistant MCP server and plugin |
 | [go-coding](https://github.com/Cadasto/go-coding-plugin)                         | Idiomatic Go coding standards for AI assistants (formatting, errors, concurrency, testing, layout) |
+| [sdd](https://github.com/Cadasto/sdd-plugin)                                     | Spec-Driven Development workflow — requirements, RFC-2119 specs, ADRs, and plans with stable identifiers, traceability, and drift CI |
 
 ## Getting Started
 

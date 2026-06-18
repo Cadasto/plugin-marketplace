@@ -2,7 +2,7 @@
   "name": "cadasto",
   "metadata": {
     "description": "Claude Code plugin marketplace maintained by Cadasto B.V.",
-    "version": "1.2.1"
+    "version": "1.3.0"
   },
   "owner": {
     "name": "Cadasto B.V.",
@@ -31,6 +31,14 @@
       "source": {
         "source": "github",
         "repo": "cadasto/go-coding-plugin"
+      }
+    },
+    {
+      "name": "sdd",
+      "description": "Spec-Driven Development workflow for AI assistants — requirements, RFC-2119 specs, ADRs, and plans with stable identifiers, machine-checked traceability, and drift CI.",
+      "source": {
+        "source": "github",
+        "repo": "cadasto/sdd-plugin"
       }
     }
   ]

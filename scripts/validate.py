@@ -9,6 +9,8 @@ Checks, in order:
      is shared, so the twin is generated rather than hand-maintained.
   3. `README.md` — the "Available Plugins" table must list exactly the plugins
      in the manifest, in the same order.
+  4. `CHANGELOG.md` — the catalog version in `metadata.version` must have a
+     matching released section, so a bump cannot ship undocumented.
 
 Usage:
   python3 scripts/validate.py           # verify; non-zero exit on any error
@@ -23,6 +25,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CLAUDE_MANIFEST = ROOT / ".claude-plugin" / "marketplace.json"
 CURSOR_MANIFEST = ROOT / ".cursor-plugin" / "marketplace.json"
 README = ROOT / "README.md"
+CHANGELOG = ROOT / "CHANGELOG.md"
 
 # Cursor reads the same catalog shape but has no $schema vocabulary of its own.
 CURSOR_DROPPED_KEYS = ("$schema",)
@@ -148,6 +151,16 @@ def validate_readme(claude):
         err(f"README.md: plugin table lists {rows}, manifest has {expected}")
 
 
+def validate_changelog(claude):
+    version = claude.get("metadata", {}).get("version")
+    if not version:
+        err("marketplace.json: metadata.version missing — the catalog's release counter")
+        return
+    text = CHANGELOG.read_text(encoding="utf-8")
+    if not re.search(rf"^## \[{re.escape(version)}\] - \d{{4}}-\d{{2}}-\d{{2}}$", text, re.M):
+        err(f"CHANGELOG.md: no dated section for the current version [{version}]")
+
+
 def main():
     fix = "--fix" in sys.argv[1:]
 
@@ -167,6 +180,7 @@ def main():
     validate_claude(claude)
     validate_cursor(claude)
     validate_readme(claude)
+    validate_changelog(claude)
 
     if errors:
         print(f"✘ {len(errors)} problem(s):")

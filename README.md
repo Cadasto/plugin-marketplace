@@ -49,6 +49,18 @@ Add this repository as a plugin marketplace from **Settings → Plugins**, then 
 
 Catalog entries are pinned to a release tag (`vX.Y.Z`) rather than tracking a default branch, so installing a plugin gives you a released version and never an in-flight commit. Publishing a new plugin version therefore takes two steps: tag the release in the plugin repo, then bump `version` and `source.ref` in this catalog.
 
+## Documentation
+
+| Document | Covers |
+|----------|--------|
+| [docs/install.md](docs/install.md) | Adding the marketplace and installing plugins, on Claude Code and Cursor |
+| [docs/authoring.md](docs/authoring.md) | The catalog entry format, and adding, updating, renaming or removing a plugin |
+| [docs/testing.md](docs/testing.md) | Validating the manifests and smoke-testing a real install |
+| [docs/versioning.md](docs/versioning.md) | How the catalog is versioned, and the release procedure |
+| [CHANGELOG.md](CHANGELOG.md) | What changed in each catalog release |
+
+[AGENTS.md](AGENTS.md) is the working brief for AI assistants maintaining this repository.
+
 ## Contributing
 
 Adding or updating a plugin means editing `.claude-plugin/marketplace.json`, then regenerating the Cursor twin and verifying everything:
@@ -57,7 +69,7 @@ Adding or updating a plugin means editing `.claude-plugin/marketplace.json`, the
 python3 scripts/validate.py --fix
 ```
 
-CI runs the same script on every push and pull request. See [AGENTS.md](AGENTS.md) for the full entry format and conventions.
+CI runs the same script on every push and pull request. See [docs/authoring.md](docs/authoring.md) for the entry format and [docs/versioning.md](docs/versioning.md) for the release steps.
 
 ## License
 

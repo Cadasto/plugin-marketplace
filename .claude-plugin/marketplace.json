@@ -13,34 +13,102 @@
   "plugins": [
     {
       "name": "openehr-assistant",
+      "displayName": "openEHR Assistant",
       "description": "AI plugin to assist on various openEHR related tasks",
+      "version": "0.9.0",
+      "author": {
+        "name": "Cadasto B.V.",
+        "url": "https://github.com/Cadasto"
+      },
+      "homepage": "https://github.com/Cadasto/openehr-assistant-plugin",
+      "license": "MIT",
+      "category": "development",
+      "keywords": [
+        "openehr",
+        "clinical",
+        "ehr",
+        "archetypes",
+        "templates",
+        "aql",
+        "ckm"
+      ],
       "source": {
         "source": "github",
-        "repo": "cadasto/openehr-assistant-plugin"
+        "repo": "Cadasto/openehr-assistant-plugin"
       }
     },
     {
       "name": "openehr-assistant-dev",
-      "description": "Maintainer plugin for developing the openEHR Assistant MCP server and plugin",
+      "displayName": "openEHR Assistant Dev",
+      "description": "Maintainer plugin for developing the openEHR Assistant MCP server and plugin — authoring guides, prompts, MCP tools, examples, and managing releases",
+      "version": "0.2.0",
+      "author": {
+        "name": "Cadasto B.V.",
+        "url": "https://github.com/Cadasto"
+      },
+      "homepage": "https://github.com/Cadasto/openehr-assistant-dev-plugin",
+      "license": "MIT",
+      "category": "development",
+      "keywords": [
+        "openehr",
+        "mcp",
+        "plugin-development",
+        "maintainer",
+        "tooling",
+        "authoring"
+      ],
       "source": {
         "source": "github",
-        "repo": "cadasto/openehr-assistant-dev-plugin"
+        "repo": "Cadasto/openehr-assistant-dev-plugin"
       }
     },
     {
       "name": "go-coding",
+      "displayName": "Go Coding Standards",
       "description": "Idiomatic Go coding standards for AI assistants — formatting, errors, concurrency, testing, layout.",
+      "version": "0.4.0",
+      "author": {
+        "name": "Cadasto B.V.",
+        "url": "https://github.com/Cadasto"
+      },
+      "homepage": "https://github.com/Cadasto/go-coding-plugin",
+      "license": "MIT",
+      "category": "development",
+      "keywords": [
+        "go",
+        "golang",
+        "coding-standards",
+        "linting",
+        "testing"
+      ],
       "source": {
         "source": "github",
-        "repo": "cadasto/go-coding-plugin"
+        "repo": "Cadasto/go-coding-plugin"
       }
     },
     {
       "name": "sdd",
+      "displayName": "Spec-Driven Development",
       "description": "Spec-Driven Development workflow for AI assistants — requirements, RFC-2119 specs, ADRs, and plans with stable identifiers, machine-checked traceability, and drift CI.",
+      "version": "0.4.0",
+      "author": {
+        "name": "Cadasto B.V.",
+        "url": "https://github.com/Cadasto"
+      },
+      "homepage": "https://github.com/Cadasto/sdd-plugin",
+      "license": "MIT",
+      "category": "development",
+      "keywords": [
+        "spec-driven-development",
+        "sdd",
+        "specifications",
+        "requirements",
+        "adr",
+        "traceability"
+      ],
       "source": {
         "source": "github",
-        "repo": "cadasto/sdd-plugin"
+        "repo": "Cadasto/sdd-plugin"
       }
     }
   ]

@@ -11,25 +11,24 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 
 ## [Unreleased]
 
-### Changed
-- Manifest: `sdd` and `go-coding` repinned to **v0.4.1** — both correct a `PostToolUse` hook timeout that was five hours rather than twenty seconds (Claude Code reads the field in seconds), plus agents that described themselves as read-only while holding `Bash`. `sdd` also stops its always-on router inheriting every tool; `go-coding` gives `go-lint-setup` the `Bash` it needs to run the migration it offers. `version` and `source.ref` moved together for both.
-- Manifest: `openehr-assistant-dev` repinned to **v0.3.0** — corrects a `claude plugin add` install command that never existed, which the `release-workflow` skill and `repo-conventions-scout` agent had propagated into the repos that plugin documents, and adds the marketplace repin step to `release-workflow`. `version` and `source.ref` moved together.
-
-## [1.6.0] - 2026-08-25
+## [1.6.0] - 2026-08-26
 
 ### Added
 - CI: `.vale.ini` plus a `prose` job pinned to Vale 3.18.0 — gates on errors only, with warnings and suggestions left as a backlog. Project terminology lives in `styles/config/vocabularies/Cadasto/`; the downloaded packages under `styles/` are gitignored.
 
 ### Changed
+- Manifest: `openehr-assistant` repinned to **v0.9.2** — the reworded `description` (archetypes, templates, compositions, AQL, CKM reuse search, and specification lookup), the `claude plugin add` correction, that repo's own Vale setup, and the follow-up docs fixes it shipped. `version` and `source.ref` moved together.
+- Manifest: `openehr-assistant-dev` repinned to **v0.3.0** — corrects a `claude plugin add` install command that never existed, which the `release-workflow` skill and `repo-conventions-scout` agent had propagated into the repos that plugin documents, and adds the marketplace repin step to `release-workflow`. `version` and `source.ref` moved together.
+- Manifest: `sdd` and `go-coding` repinned to **v0.4.1** — both correct a `PostToolUse` hook timeout that was five hours rather than twenty seconds (Claude Code reads the field in seconds), plus agents that described themselves as read-only while holding `Bash`. `sdd` also stops its always-on router inheriting every tool; `go-coding` gives `go-lint-setup` the `Bash` it needs to run the migration it offers. `version` and `source.ref` moved together for both.
 - Manifest: `docs-editing` repinned to **v0.3.0** — the shipped Vale setup now lints clean on first run (a seeded vocabulary, `Google.Quotes` off, and `Vocab` renamed off this organisation's name), plus corrections to three tooling claims its docs made without running the tool. `version` and `source.ref` moved together.
-- Manifest: `openehr-assistant` repinned to **v0.9.1** — the reworded `description` (archetypes, templates, compositions, AQL, CKM reuse search, specification lookup), the `claude plugin add` correction, and that repo's own Vale setup. `version` and `source.ref` moved together.
 - Docs: the Cursor caveat — this catalog is not a Cursor marketplace — is stated once in `README.md` and once in `docs/install.md`, in the Cursor section each time, rather than twice per file.
 - Docs: `docs/authoring.md` points at the remote tag check before a pin is committed; `docs/testing.md` records the `source.repo` shape the validator enforces.
 - Docs: slash-command blocks are tagged `text`, shell blocks `bash`; Claude Code links use `docs.claude.com`.
 
 ### Fixed
 - Docs: `docs/install.md` — the local-development install named `claude plugin add`, which is not a Claude Code command. Replaced with loading the working copy from `~/.claude/skills/<name>/`.
-- Docs: `docs/versioning.md` — release step 9 passed a prose placeholder to `gh release create --notes-file`. It now pipes the CHANGELOG section in through `-F -`.
+- Docs: `docs/versioning.md` — release step 9 passed a prose placeholder to `gh release create --notes-file`. It now pipes the CHANGELOG section in through `-F -`, with the version held in `VER` so the heading match, the tag, and the title cannot drift; the first form matched a literal `[X.Y.Z]`, which no heading ever equals.
+- Docs: `.vale.ini` — the copied header still described the docs-editing reference config and cited sections of a style guide this repo does not carry.
 
 ## [1.5.0] - 2026-08-25
 

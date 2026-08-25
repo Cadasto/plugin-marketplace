@@ -15,7 +15,7 @@
       "name": "openehr-assistant",
       "displayName": "openEHR Assistant",
       "description": "openEHR clinical modeling for AI assistants — archetypes, templates, compositions, AQL, CKM reuse search, and specification lookup.",
-      "version": "0.9.1",
+      "version": "0.9.2",
       "author": {
         "name": "Cadasto B.V.",
         "url": "https://github.com/Cadasto"
@@ -35,7 +35,7 @@
       "source": {
         "source": "github",
         "repo": "Cadasto/openehr-assistant-plugin",
-        "ref": "v0.9.1"
+        "ref": "v0.9.2"
       }
     },
     {

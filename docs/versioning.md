@@ -39,11 +39,15 @@ Two consequences:
 6. **Smoke-test the Claude Code install** — see [testing.md](testing.md). Validation cannot tell you whether the pinned tag exists. Cursor installs from each plugin repo, not from this catalog.
 7. Commit (`chore(release): vX.Y.Z`) and tag: `git tag -a vX.Y.Z -m "plugin-marketplace vX.Y.Z"`.
 8. Push commits and the tag: `git push origin main --follow-tags`.
-9. Cut the GitHub release from the tag, titled **exactly** the tag name, with the new CHANGELOG section as the body. `-F -` reads that body from standard input:
+9. Cut the GitHub release from the tag, titled **exactly** the tag name, with the new CHANGELOG section as the body. `-F -` reads that body from standard input. Set `VER` to the release being cut (for example `1.6.0`) — the same value drives the heading match, the tag, and the title:
 
    ```bash
-   awk '/^## \[X\.Y\.Z\]/{f=1;next} /^## \[/{f=0} f' CHANGELOG.md |
-     gh release create vX.Y.Z --title "vX.Y.Z" -F -
+   VER=1.6.0
+   awk -v ver="$VER" '
+     $0 ~ "^## \\[" ver "\\]" {f=1; next}
+     /^## \[/ {f=0}
+     f
+   ' CHANGELOG.md | gh release create "v$VER" --title "v$VER" -F -
    ```
 
 ## Tag and release naming

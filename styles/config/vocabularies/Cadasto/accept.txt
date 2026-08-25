@@ -13,6 +13,7 @@ CHANGELOG|[Cc]hangelog
 [Pp]lugins?
 [Rr]epos?
 [Mm]etadata
+[Cc]onfigs?
 [Ss]tdlib
 [Vv]alidator
 [Dd]ogfood(ing)?

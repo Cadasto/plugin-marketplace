@@ -36,7 +36,7 @@ Two consequences:
 3. Update the README table if the plugin list changed.
 4. Fold the change into a dated `## [X.Y.Z] - YYYY-MM-DD` section in [CHANGELOG.md](../CHANGELOG.md) (Keep a Changelog — groups in order Added, Changed, Deprecated, Removed, Fixed, Security).
 5. Run `python3 scripts/validate.py --fix` and `claude plugin validate .`.
-6. **Smoke-test the install** on both hosts — see [testing.md](testing.md). Validation cannot tell you whether the pinned tag exists.
+6. **Smoke-test the Claude Code install** — see [testing.md](testing.md). Validation cannot tell you whether the pinned tag exists. Cursor installs from each plugin repo, not from this catalog.
 7. Commit (`chore(release): vX.Y.Z`) and tag: `git tag -a vX.Y.Z -m "plugin-marketplace vX.Y.Z"`.
 8. Push commits and the tag: `git push origin main --follow-tags`.
 

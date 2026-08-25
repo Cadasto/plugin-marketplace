@@ -1,14 +1,14 @@
 # Authoring Catalog Entries
 
-Authoring in this repository means editing **one array**: `plugins` in `.claude-plugin/marketplace.json`. Everything else — the Cursor manifest, the README table — is derived from it or checked against it.
+Authoring in this repository means editing **one array**: `plugins` in `.claude-plugin/marketplace.json`. The Cursor twin is regenerated from it. The README table and changelog stay hand-edited and are checked against it.
 
 ## The single source of truth
 
 | File | Role |
 |------|------|
-| `.claude-plugin/marketplace.json` | **Source of truth.** Every catalog change starts and ends here. |
-| `.cursor-plugin/marketplace.json` | **Generated.** The Claude manifest with `$schema` dropped. Never hand-edit it. |
-| `README.md` (plugin table) | Human-facing mirror. Same plugins, same order — CI enforces it. |
+| `.claude-plugin/marketplace.json` | **Source of truth.** Every catalog change starts here. |
+| `.cursor-plugin/marketplace.json` | **Generated.** The Claude manifest with `$schema` dropped, for field parity. Not Cursor's native multi-plugin schema. Never hand-edit it. |
+| `README.md` (plugin table) | Same plugin names, same order — CI enforces names and order, not descriptions. |
 | `CHANGELOG.md` | What changed in each catalog release. |
 
 Regenerate and verify in one step:
@@ -66,7 +66,7 @@ Both break `<name>@cadasto` for everyone who has it installed, and are **major**
 
 ## Marketplace-level fields
 
-`description` and `owner` live at the **top level**, where Claude Code reads them. The one field under `metadata` is `version` — this catalog's own release counter, which Claude Code does not consume. Do not move a marketplace description back under `metadata`; validation rejects it.
+`description` and `owner` live at the **top level**. The one field under `metadata` is `version` — this catalog's own release counter. Claude Code also accepts `version` and `description` under `metadata`; this repo keeps them at the top level so the house rule stays one place. Do not move a marketplace description back under `metadata`; validation rejects it.
 
 ## What does not belong here
 

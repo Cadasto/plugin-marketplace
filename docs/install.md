@@ -1,8 +1,8 @@
 # Installing from the Cadasto Marketplace
 
-> This repository is a **catalog**, not a plugin. It contains no skills, agents, or commands — only the manifests that tell Claude Code and Cursor where the Cadasto plugins live and which release to install.
+> This repository is a **catalog**, not a plugin. It contains no skills, agents, or commands — only the Claude Code marketplace manifest that names each Cadasto plugin and which release to install.
 
-The catalog is published twice from a single source of truth: `.claude-plugin/marketplace.json` for [Claude Code](https://docs.claude.com/en/docs/claude-code/plugins) and `.cursor-plugin/marketplace.json` for [Cursor](https://cursor.com/docs/plugins). Both list the same plugins at the same pinned versions.
+The source of truth is `.claude-plugin/marketplace.json` for [Claude Code](https://docs.claude.com/en/docs/claude-code/plugins). `.cursor-plugin/marketplace.json` is generated from it (`$schema` dropped) for field parity. Cursor's [marketplace schema](https://cursor.com/docs/reference/plugins) expects plugins that live in this repository, so adding this repo in Cursor does not install the remote plugins. Install those from each plugin repo — see [Cursor](#cursor).
 
 ## Claude Code
 
@@ -17,11 +17,10 @@ Once only. The marketplace name is `cadasto`, so its plugins are addressed as `<
 ### Install a plugin
 
 ```
-/plugin install openehr-assistant@cadasto
-/plugin install openehr-assistant-dev@cadasto
-/plugin install go-coding@cadasto
-/plugin install sdd@cadasto
+/plugin install <plugin>@cadasto
 ```
+
+The current names are in the [README plugin table](../README.md#available-plugins).
 
 ### Update
 
@@ -41,9 +40,9 @@ claude plugin details <plugin>         # component inventory + projected token c
 
 ## Cursor
 
-Add this repository as a plugin marketplace from **Settings → Plugins**, then install any plugin from the catalog.
+Install each plugin from its own repository. This catalog is the Claude Code marketplace; it does not contain plugin directories, so a Cursor [Team Marketplace](https://cursor.com/docs/plugins) import of this repo has nothing to resolve.
 
-Cursor reads `.cursor-plugin/marketplace.json` at the repository root; each plugin repo carries its own `.cursor-plugin/plugin.json` declaring its `skills`, `agents`, `rules`, and `hooks` paths.
+Each plugin repo ships `.cursor-plugin/plugin.json` (skills, agents, rules, hooks). Add that repo locally, or submit it on its own, following that repo's `docs/install.md`.
 
 ## Local development against a plugin
 
@@ -57,4 +56,4 @@ See that plugin repo's own `docs/install.md` for its host requirements and hook 
 
 ## What is in the catalog
 
-The authoritative list is the manifest; [README.md](../README.md) mirrors it in a table, and CI checks the two agree. Each entry names the plugin's `version` and pins `source.ref` to the matching `vX.Y.Z` release tag, so installing gives you a released version and never an in-flight commit.
+The authoritative list is the Claude manifest. [README.md](../README.md) lists the same plugin names in the same order, and CI checks that agreement. Each entry names the plugin's `version` and pins `source.ref` to the matching `vX.Y.Z` release tag, so a Claude Code install gives you a released version and never an in-flight commit.

@@ -4,15 +4,15 @@ Instructions for Claude Code and subagents working in this repository.
 
 ## Project
 
-This is the **Cadasto Plugin Marketplace** — a plugin catalog maintained by Cadasto B.V., serving both **Claude Code** and **Cursor**. It is a catalog only: every plugin lives in its own repository and is referenced here by a pinned release tag. Nothing here is a plugin component; if you are writing a skill, agent, command, or hook, you are in the wrong repository.
+This is the **Cadasto Plugin Marketplace** — the Claude Code catalog maintained by Cadasto B.V. Every listed plugin also ships a Cursor manifest and is installed on Cursor from its own repository. This repo is a catalog only: every plugin lives elsewhere and is referenced here by a pinned release tag. Nothing here is a plugin component; if you are writing a skill, agent, command, or hook, you are in the wrong repository.
 
 ## Structure
 
 | Path | Role |
 |------|------|
 | `.claude-plugin/marketplace.json` | **Source of truth.** Every catalog change starts here. |
-| `.cursor-plugin/marketplace.json` | **Generated** — the Claude manifest minus `$schema`. Never hand-edit. |
-| `README.md` | Human-facing entry point; its plugin table mirrors the manifest. |
+| `.cursor-plugin/marketplace.json` | **Generated** — Claude manifest minus `$schema`, for field parity. Not Cursor's native schema. Never hand-edit. |
+| `README.md` | Human-facing entry point; its plugin table lists the same names in the same order. |
 | `CHANGELOG.md` | Per-release catalog history (Keep a Changelog). |
 | `docs/` | The detailed guides — see the table below. |
 | `scripts/validate.py` | The full check; `--fix` regenerates the Cursor twin. |
@@ -26,7 +26,7 @@ Keep detail in `docs/` and keep this file a brief. When a convention changes, up
 
 | Document | Owns |
 |----------|------|
-| [docs/install.md](docs/install.md) | Install and update flows, both hosts; local development installs |
+| [docs/install.md](docs/install.md) | Claude Code marketplace add/install/update; Cursor per-plugin install; local development installs |
 | [docs/authoring.md](docs/authoring.md) | Entry format, field provenance, add / update / rename / remove |
 | [docs/testing.md](docs/testing.md) | What each validator checks; the manual smoke test |
 | [docs/versioning.md](docs/versioning.md) | Catalog SemVer rules, plugin-vs-catalog bumps, release steps |
@@ -35,11 +35,11 @@ Keep detail in `docs/` and keep this file a brief. When a convention changes, up
 
 1. Edit the `plugins` array in `.claude-plugin/marketplace.json`. The full entry format is in [docs/authoring.md](docs/authoring.md#entry-format) — every field there is required, and `description`, `version`, and `keywords` are copied **verbatim** from the plugin's own `plugin.json`.
 2. Pin `source.ref` to the `vX.Y.Z` tag matching the entry's `version`.
-3. Mirror the change in the README table (same plugins, same order).
+3. Mirror the change in the README table (same plugin names, same order).
 4. Bump `metadata.version` and add a `CHANGELOG.md` entry.
 5. Run `python3 scripts/validate.py --fix` and `claude plugin validate .`.
 
-Steps 3, 4, and 5 are enforced — validation fails on a README mismatch, on a `metadata.version` with no changelog section, and on a stale Cursor twin.
+`validate.py` (what CI runs) fails on a README name/order mismatch, on a `metadata.version` with no dated changelog heading, and on a stale Cursor twin. `claude plugin validate .` is a local schema check and is not in CI.
 
 ### Reacting to a plugin release
 
@@ -82,7 +82,7 @@ Run both. The second one warns about unknown fields, which is the fastest way to
 - Repository references use the `Cadasto/…` casing consistently
 - `description`, `version`, `keywords` are copied verbatim from the plugin's `plugin.json`; if the wording is poor, fix it **in the plugin repo** and let it flow here on the next release
 - `category` is not enum-validated — a typo passes silently and drops the plugin from that filter. Use an established value (`development`, `productivity`, `security`, `testing`, …)
-- Marketplace `description` and `owner` live at the top level; the only field under `metadata` is `version`
+- Marketplace `description` and `owner` live at the top level; the only field under `metadata` is `version` (house rule; Claude also accepts those under `metadata`)
 - A plugin with no `vX.Y.Z` release tag cannot be pinned, so it does not belong in the catalog yet
 
 ### Commit Messages
@@ -92,6 +92,6 @@ Run both. The second one warns about unknown fields, which is the fastest way to
 ## Gotchas
 
 - **The catalog cannot pin itself.** Users track this repo's default branch, so a broken `main` is live immediately. Keep `main` releasable; let CI gate the merge.
-- **`.cursor-plugin/marketplace.json` is generated.** Editing it directly gets silently overwritten by the next `--fix`. Change the Claude manifest instead.
+- **`.cursor-plugin/marketplace.json` is generated** for field parity, not as a Cursor Team Marketplace. Editing it directly gets silently overwritten by the next `--fix`. Change the Claude manifest instead. Cursor installs each plugin from its own repo.
 - **An unpinned entry is a supply-chain hole, not a convenience.** Without `source.ref` every push to a plugin's default branch ships straight to every installed user.
 - **The plugin repos' own release docs need a final step** pointing back here. Before pinning existed the catalog tracked default branches, and some plugin `docs/versioning.md` files still say a marketplace update is unnecessary.

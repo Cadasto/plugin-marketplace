@@ -42,7 +42,7 @@
       "name": "openehr-assistant-dev",
       "displayName": "openEHR Assistant Dev",
       "description": "Maintainer plugin for developing the openEHR Assistant MCP server and plugin — authoring guides, prompts, MCP tools, examples, and managing releases",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "author": {
         "name": "Cadasto B.V.",
         "url": "https://github.com/Cadasto"
@@ -61,7 +61,7 @@
       "source": {
         "source": "github",
         "repo": "Cadasto/openehr-assistant-dev-plugin",
-        "ref": "v0.2.0"
+        "ref": "v0.3.0"
       }
     },
     {

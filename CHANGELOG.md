@@ -11,6 +11,9 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 
 ## [Unreleased]
 
+### Changed
+- Manifest: `openehr-assistant-dev` repinned to **v0.3.0** — corrects a `claude plugin add` install command that never existed, which the `release-workflow` skill and `repo-conventions-scout` agent had propagated into the repos that plugin documents, and adds the marketplace repin step to `release-workflow`. `version` and `source.ref` moved together.
+
 ## [1.6.0] - 2026-08-25
 
 ### Added

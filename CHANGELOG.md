@@ -15,6 +15,7 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 - CI: `.vale.ini` plus a `prose` job pinned to Vale 3.18.0 — gates on errors only, with warnings and suggestions left as a backlog. Project terminology lives in `styles/config/vocabularies/Cadasto/`; the downloaded packages under `styles/` are gitignored.
 
 ### Changed
+- Manifest: `docs-editing` repinned to **v0.3.0** — the shipped Vale setup now lints clean on first run (a seeded vocabulary, `Google.Quotes` off, and `Vocab` renamed off this organisation's name), plus corrections to three tooling claims its docs made without running the tool. `version` and `source.ref` moved together.
 - Manifest: `openehr-assistant` description copied from the plugin's reworded `plugin.json` — it names archetypes, templates, compositions, AQL, CKM reuse search, and specification lookup. The pinned `v0.9.0` tag still carries the old string; the two agree again at the plugin's next release.
 - Docs: the Cursor caveat — this catalog is not a Cursor marketplace — is stated once in `README.md` and once in `docs/install.md`, in the Cursor section each time, rather than twice per file.
 - Docs: `docs/authoring.md` points at the remote tag check before a pin is committed; `docs/testing.md` records the `source.repo` shape the validator enforces.

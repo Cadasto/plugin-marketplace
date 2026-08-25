@@ -39,7 +39,22 @@ Two consequences:
 6. **Smoke-test the Claude Code install** — see [testing.md](testing.md). Validation cannot tell you whether the pinned tag exists. Cursor installs from each plugin repo, not from this catalog.
 7. Commit (`chore(release): vX.Y.Z`) and tag: `git tag -a vX.Y.Z -m "plugin-marketplace vX.Y.Z"`.
 8. Push commits and the tag: `git push origin main --follow-tags`.
+9. Cut the GitHub release from the tag, titled **exactly** the tag name:
+   `gh release create vX.Y.Z --title "vX.Y.Z" --notes-file <the new CHANGELOG section>`.
+
+## Tag and release naming
+
+These are rules, not preferences — a mixed history has to be repaired by moving published refs, which is worse than getting it right once.
+
+- **Tags are `vX.Y.Z`.** Always the `v` prefix; never a bare `X.Y.Z`. This matches every Cadasto plugin repo, so one convention covers the whole org.
+- **Tags are annotated** (`git tag -a`), never lightweight. An annotated tag carries its own author, date, and message.
+- **Every tag has a GitHub release**, and the release title is **exactly** the tag name — `v1.4.0`, not `Release 1.4.0` or a themed name. The CHANGELOG section is the release body; the theme belongs there, not in the title.
+- **Never reuse or move a published tag.** Cut the next patch instead.
+
+If a tag ever lands in the wrong form, repair it by creating the correctly-named annotated tag at the *same commit*, pushing it, verifying it is on the remote, and only then deleting the old ref — locally and remotely. Check first whether a release is attached to the old tag; if so, recreate it against the new one.
 
 ## History note
 
 `1.2.1` recorded a plugin rename (`go-coding-plugin` → `go-coding`) as a patch. Under the table above that is a **major** bump: a rename changes the install id. The historical entry is left as it shipped; the rule applies going forward.
+
+Tags `1.2.0`, `1.2.1`, and `1.3.0` originally shipped bare and lightweight, while `v1.0.0` and `v1.1.0` were annotated and prefixed. At the `v1.4.0` release the three were re-cut as annotated `v`-prefixed tags at their original commits and the bare refs deleted, and GitHub releases were backfilled for every historical tag. Release bodies before `v1.4.0` are empty — the CHANGELOG holds that history.

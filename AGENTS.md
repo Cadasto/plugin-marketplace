@@ -61,6 +61,15 @@ git ls-remote --tags https://github.com/Cadasto/<repo>.git | grep 'v1.2.3$'
 
 A plugin's own major bump is still only a catalog **minor** — the catalog gained a version, it did not break an install id.
 
+### Tag and release naming
+
+Fixed rules — do not re-decide them per release. Full detail and the repair procedure in [docs/versioning.md](docs/versioning.md#tag-and-release-naming).
+
+- Tags are **`vX.Y.Z`** — always the `v` prefix, never a bare `X.Y.Z`. Same convention across every Cadasto plugin repo.
+- Tags are **annotated** (`git tag -a`), never lightweight.
+- **Every tag gets a GitHub release**, titled **exactly** the tag name (`v1.4.0` — no themed titles, no `Release ` prefix). The CHANGELOG section is the body.
+- **Never move or reuse a published tag.** Cut the next patch instead.
+
 ### CHANGELOG style
 
 - Entries accumulate under `## [Unreleased]` and fold into a dated `## [X.Y.Z] - YYYY-MM-DD` section at release.

@@ -51,14 +51,14 @@ Every entry carries the full set of fields. None are optional here — `/plugin`
 ## Adding a plugin
 
 1. Confirm the plugin repo is **releasable**: it has `.claude-plugin/plugin.json`, a `.cursor-plugin/plugin.json`, and at least one `vX.Y.Z` tag. A plugin with no release tag cannot be pinned, so it does not belong in the catalog yet.
-2. Add the entry, copying `description` / `version` / `keywords` from its `plugin.json` and pinning `source.ref` to its latest tag.
+2. Add the entry, copying `description` / `version` / `keywords` from its `plugin.json` and pinning `source.ref` to its latest tag. Confirm the tag exists on the remote first — [testing.md](testing.md#verifying-a-pin-before-committing).
 3. Add a matching row to the README table, in the same position.
 4. Bump `metadata.version` and add a `CHANGELOG.md` entry ([versioning.md](versioning.md)).
 5. `python3 scripts/validate.py --fix`
 
 ## Updating a plugin to a new release
 
-The plugin repo tagging a release does **not** ship it — pinned entries mean users see nothing until this catalog moves. Bump `version` and `source.ref` together (validation rejects a mismatch), then bump `metadata.version` and record it in the changelog.
+The plugin repo tagging a release does **not** ship it — pinned entries mean users see nothing until this catalog moves. Bump `version` and `source.ref` together (validation rejects a mismatch), then bump `metadata.version` and record it in the changelog. Nothing in the validator reaches the network, so [check the tag exists on the remote](testing.md#verifying-a-pin-before-committing) before committing.
 
 ## Renaming or removing a plugin
 

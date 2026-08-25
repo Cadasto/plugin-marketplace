@@ -1,24 +1,28 @@
 # Cadasto Plugin Marketplace
 
-A plugin marketplace maintained by [Cadasto B.V.](https://github.com/Cadasto) for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Every listed plugin also ships a [Cursor](https://cursor.com/docs/plugins) manifest, so the same plugins install on Cursor from each plugin repository.
+A plugin marketplace maintained by [Cadasto B.V.](https://github.com/Cadasto) for [Claude Code](https://docs.claude.com/en/docs/claude-code). Every listed plugin also ships a [Cursor](https://cursor.com/docs/plugins) manifest, so the same plugins install on Cursor from each plugin repository.
 
 ## What is this?
 
-Claude Code and Cursor both support **plugins** — extensions that add new skills, commands, and tools to your coding assistant. Plugins can teach the assistant about specific domains, connect it to external services, or give it specialized workflows tailored to your needs.
+A **plugin** extends a coding assistant with skills, commands, agents, and tools — teaching it a domain, connecting it to a service, or giving it a specific workflow. A **marketplace** is a catalog of plugins you browse, install, and update from inside the assistant.
 
-A **marketplace** is a curated catalog of plugins that you can browse, install, and keep up to date — all from within your assistant. This marketplace collects the plugins built and maintained by Cadasto.
-
-This catalog is the Claude Code marketplace. Its source of truth is `.claude-plugin/marketplace.json`. `.cursor-plugin/marketplace.json` is generated from that file (`$schema` dropped) for field parity. Cursor's own marketplace schema expects plugins that live in this repository, so adding this repo in Cursor does not install the remote plugins.
+This repository is the Claude Code marketplace for the plugins Cadasto maintains. It is a catalog only: each plugin lives in its own repository and is listed here, pinned to a release tag. The source of truth is `.claude-plugin/marketplace.json`; `.cursor-plugin/marketplace.json` is generated from it for field parity.
 
 ## Available Plugins
 
+<!-- Descriptions are copied verbatim from each plugin's own plugin.json — see
+     docs/authoring.md. Reword them in the plugin repo, never here. -->
+<!-- vale write-good.Weasel = NO -->
+
 | Plugin                                                                           | Description                                                                  |
 |----------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| [openehr-assistant](https://github.com/Cadasto/openehr-assistant-plugin)         | AI plugin to assist on various openEHR related tasks                         |
+| [openehr-assistant](https://github.com/Cadasto/openehr-assistant-plugin)         | openEHR clinical modeling for AI assistants — archetypes, templates, compositions, AQL, CKM reuse search, and specification lookup.                         |
 | [openehr-assistant-dev](https://github.com/Cadasto/openehr-assistant-dev-plugin) | Maintainer plugin for developing the openEHR Assistant MCP server and plugin — authoring guides, prompts, MCP tools, examples, and managing releases |
 | [go-coding](https://github.com/Cadasto/go-coding-plugin)                         | Idiomatic Go coding standards for AI assistants — formatting, errors, concurrency, testing, layout. |
 | [sdd](https://github.com/Cadasto/sdd-plugin)                                     | Spec-Driven Development workflow for AI assistants — requirements, RFC-2119 specs, ADRs, and plans with stable identifiers, machine-checked traceability, and drift CI. |
 | [docs-editing](https://github.com/Cadasto/docs-editing-plugin)                   | Human-facing documentation and content standards for AI assistants — technical writing, copy editing, marketing copy, SEO and AI citability, with claims grounded in cited evidence. |
+
+<!-- vale write-good.Weasel = YES -->
 
 ## Getting Started
 
@@ -26,25 +30,25 @@ This catalog is the Claude Code marketplace. Its source of truth is `.claude-plu
 
 Add the Cadasto marketplace. You only need to do this once:
 
-```bash
+```text
 /plugin marketplace add Cadasto/plugin-marketplace
 ```
 
 Then install any plugin from the catalog:
 
-```bash
+```text
 /plugin install openehr-assistant@cadasto
 ```
 
 To pick up new plugins and released versions later:
 
-```bash
+```text
 /plugin marketplace update cadasto
 ```
 
 ### Cursor
 
-Install each plugin from its own repository — this catalog is not a Cursor marketplace of remote plugins. Cursor's [Team Marketplace](https://cursor.com/docs/plugins) indexes plugins that live in the imported repo. Each Cadasto plugin ships `.cursor-plugin/plugin.json` and can be added locally or submitted on its own. See [docs/install.md](docs/install.md).
+Install each plugin from its own repository. Cursor's [Team Marketplace](https://cursor.com/docs/plugins) indexes plugins that live in the repository you import, so importing this catalog of remote sources finds nothing to install. Each Cadasto plugin ships `.cursor-plugin/plugin.json` and is added on its own — see [docs/install.md](docs/install.md#cursor).
 
 ## Releases
 

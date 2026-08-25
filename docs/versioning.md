@@ -18,11 +18,11 @@ Changes that touch no entry — a docs fix, a validator improvement, tightening 
 
 ### The plugin-side consequence
 
-Each plugin repo's own release checklist must now end with **"update the entry in `Cadasto/plugin-marketplace`"**. Before pinning, the catalog tracked default branches and a plugin release propagated on its own; it no longer does. A plugin release that stops at `git push --follow-tags` is invisible to users.
+Each plugin repo's own release checklist ends with one more step: **update the entry in `Cadasto/plugin-marketplace`**. Before pinning, the catalog tracked default branches and a plugin release propagated on its own; it no longer does. A plugin release that stops at `git push --follow-tags` is invisible to users.
 
 ## The catalog cannot pin itself
 
-Users add this repository with `/plugin marketplace add Cadasto/plugin-marketplace`, which tracks the **default branch**. There is no version pin at the marketplace level — that asymmetry is inherent, not an oversight.
+Users add this repository with `/plugin marketplace add Cadasto/plugin-marketplace`, which tracks the **default branch**. The marketplace level carries no version pin — that asymmetry is inherent, not an oversight.
 
 Two consequences:
 
@@ -39,8 +39,16 @@ Two consequences:
 6. **Smoke-test the Claude Code install** — see [testing.md](testing.md). Validation cannot tell you whether the pinned tag exists. Cursor installs from each plugin repo, not from this catalog.
 7. Commit (`chore(release): vX.Y.Z`) and tag: `git tag -a vX.Y.Z -m "plugin-marketplace vX.Y.Z"`.
 8. Push commits and the tag: `git push origin main --follow-tags`.
-9. Cut the GitHub release from the tag, titled **exactly** the tag name:
-   `gh release create vX.Y.Z --title "vX.Y.Z" --notes-file <the new CHANGELOG section>`.
+9. Cut the GitHub release from the tag, titled **exactly** the tag name, with the new CHANGELOG section as the body. `-F -` reads that body from standard input. Set `VER` to the release being cut (for example `1.6.0`) — the same value drives the heading match, the tag, and the title:
+
+   ```bash
+   VER=1.6.0
+   awk -v ver="$VER" '
+     $0 ~ "^## \\[" ver "\\]" {f=1; next}
+     /^## \[/ {f=0}
+     f
+   ' CHANGELOG.md | gh release create "v$VER" --title "v$VER" -F -
+   ```
 
 ## Tag and release naming
 
@@ -51,7 +59,7 @@ These are rules, not preferences — a mixed history has to be repaired by movin
 - **Every tag has a GitHub release**, and the release title is **exactly** the tag name — `v1.4.0`, not `Release 1.4.0` or a themed name. The CHANGELOG section is the release body; the theme belongs there, not in the title.
 - **Never reuse or move a published tag.** Cut the next patch instead.
 
-If a tag ever lands in the wrong form, repair it by creating the correctly-named annotated tag at the *same commit*, pushing it, verifying it is on the remote, and only then deleting the old ref — locally and remotely. Check first whether a release is attached to the old tag; if so, recreate it against the new one.
+If a tag ever lands in the wrong form, repair it by creating the correctly named annotated tag at the *same commit*, pushing it, verifying it is on the remote, and only then deleting the old ref — locally and remotely. Check first whether a release is attached to the old tag; if so, recreate it against the new one.
 
 ## History note
 

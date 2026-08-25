@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "cadasto",
   "description": "AI-assistant plugins maintained by Cadasto B.V. — openEHR clinical modeling, spec-driven development, and Go coding standards.",
   "metadata": {

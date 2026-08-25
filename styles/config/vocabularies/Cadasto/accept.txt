@@ -16,7 +16,7 @@ CHANGELOG|[Cc]hangelog
 [Ss]tdlib
 [Vv]alidator
 [Dd]ogfood(ing)?
-[Gg]itignore
+[Gg]itignor(e|ed|ing)
 Markdown
 JSON
 CI

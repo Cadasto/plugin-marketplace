@@ -16,7 +16,7 @@ This repository is the Claude Code marketplace for the plugins Cadasto maintains
 
 | Plugin                                                                           | Description                                                                  |
 |----------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| [openehr-assistant](https://github.com/Cadasto/openehr-assistant-plugin)         | AI plugin to assist on various openEHR related tasks                         |
+| [openehr-assistant](https://github.com/Cadasto/openehr-assistant-plugin)         | openEHR clinical modeling for AI assistants — archetypes, templates, compositions, AQL, CKM reuse search, and specification lookup.                         |
 | [openehr-assistant-dev](https://github.com/Cadasto/openehr-assistant-dev-plugin) | Maintainer plugin for developing the openEHR Assistant MCP server and plugin — authoring guides, prompts, MCP tools, examples, and managing releases |
 | [go-coding](https://github.com/Cadasto/go-coding-plugin)                         | Idiomatic Go coding standards for AI assistants — formatting, errors, concurrency, testing, layout. |
 | [sdd](https://github.com/Cadasto/sdd-plugin)                                     | Spec-Driven Development workflow for AI assistants — requirements, RFC-2119 specs, ADRs, and plans with stable identifiers, machine-checked traceability, and drift CI. |

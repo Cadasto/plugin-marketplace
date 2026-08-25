@@ -11,7 +11,7 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 
 ## [Unreleased]
 
-## [1.4.0] - 2026-08-24
+## [1.4.0] - 2026-08-25
 
 ### Added
 - Cursor: generated `.cursor-plugin/marketplace.json` (Claude manifest minus `$schema`).

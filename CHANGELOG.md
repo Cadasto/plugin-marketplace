@@ -12,6 +12,7 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 ## [Unreleased]
 
 ### Changed
+- Manifest: `sdd` and `go-coding` repinned to **v0.4.1** — both correct a `PostToolUse` hook timeout that was five hours rather than twenty seconds (Claude Code reads the field in seconds), plus agents that described themselves as read-only while holding `Bash`. `sdd` also stops its always-on router inheriting every tool; `go-coding` gives `go-lint-setup` the `Bash` it needs to run the migration it offers. `version` and `source.ref` moved together for both.
 - Manifest: `openehr-assistant-dev` repinned to **v0.3.0** — corrects a `claude plugin add` install command that never existed, which the `release-workflow` skill and `repo-conventions-scout` agent had propagated into the repos that plugin documents, and adds the marketplace repin step to `release-workflow`. `version` and `source.ref` moved together.
 
 ## [1.6.0] - 2026-08-25

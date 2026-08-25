@@ -11,6 +11,9 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 
 ## [Unreleased]
 
+### Added
+- CI: `.vale.ini` plus a `prose` job pinned to Vale 3.18.0 — gates on errors only, with warnings and suggestions left as a backlog. Project terminology lives in `styles/config/vocabularies/Cadasto/`; the downloaded packages under `styles/` are gitignored.
+
 ### Changed
 - Docs: the Cursor caveat — this catalog is not a Cursor marketplace — is stated once in `README.md` and once in `docs/install.md`, in the Cursor section each time, rather than twice per file.
 - Docs: `docs/authoring.md` points at the remote tag check before a pin is committed; `docs/testing.md` records the `source.repo` shape the validator enforces.

@@ -44,7 +44,7 @@ Each plugin repo ships `.cursor-plugin/plugin.json` (skills, agents, rules, hook
 
 ## Local development against a plugin
 
-To work on a plugin itself, bypass the catalog and load the working copy directly — it picks up uncommitted changes, which a pinned catalog entry deliberately will not. Place or symlink the checkout under the skills directory:
+To work on a plugin itself, bypass the catalog and load the working copy directly — it picks up uncommitted changes, which a pinned catalog entry deliberately does not. Place or symlink the checkout under the skills directory:
 
 ```bash
 ln -s /path/to/go-coding-plugin ~/.claude/skills/go-coding

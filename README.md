@@ -10,6 +10,10 @@ This repository is the Claude Code marketplace for the plugins Cadasto maintains
 
 ## Available Plugins
 
+<!-- Descriptions are copied verbatim from each plugin's own plugin.json — see
+     docs/authoring.md. Reword them in the plugin repo, never here. -->
+<!-- vale write-good.Weasel = NO -->
+
 | Plugin                                                                           | Description                                                                  |
 |----------------------------------------------------------------------------------|------------------------------------------------------------------------------|
 | [openehr-assistant](https://github.com/Cadasto/openehr-assistant-plugin)         | AI plugin to assist on various openEHR related tasks                         |
@@ -17,6 +21,8 @@ This repository is the Claude Code marketplace for the plugins Cadasto maintains
 | [go-coding](https://github.com/Cadasto/go-coding-plugin)                         | Idiomatic Go coding standards for AI assistants — formatting, errors, concurrency, testing, layout. |
 | [sdd](https://github.com/Cadasto/sdd-plugin)                                     | Spec-Driven Development workflow for AI assistants — requirements, RFC-2119 specs, ADRs, and plans with stable identifiers, machine-checked traceability, and drift CI. |
 | [docs-editing](https://github.com/Cadasto/docs-editing-plugin)                   | Human-facing documentation and content standards for AI assistants — technical writing, copy editing, marketing copy, SEO and AI citability, with claims grounded in cited evidence. |
+
+<!-- vale write-good.Weasel = YES -->
 
 ## Getting Started
 

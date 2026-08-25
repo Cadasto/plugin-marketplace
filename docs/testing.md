@@ -21,7 +21,7 @@ Stdlib only — no network, no auth, no dependencies — so CI runs it directly 
 - **README table** — lists the same plugin names in the same order as the manifest. Descriptions are not compared.
 - **Changelog** — `metadata.version` has a matching `## [X.Y.Z] - YYYY-MM-DD` heading.
 
-A failure names the file and the field, e.g. `plugins[2] (go-coding): source.ref 'v0.3.0' does not match version '0.4.0'`.
+A failure names the file and the field, for example `plugins[2] (go-coding): source.ref 'v0.3.0' does not match version '0.4.0'`.
 
 ### `claude plugin validate .`
 

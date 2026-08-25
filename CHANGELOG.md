@@ -11,10 +11,14 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-08-25
+
 ### Added
+- Plugins: `docs-editing` — documentation, editing and content standards (`Cadasto/docs-editing-plugin`), pinned to `v0.2.0`.
 - Docs: `docs/versioning.md`, `AGENTS.md` — tag and release naming rules: annotated `vX.Y.Z` tags, a GitHub release per tag titled exactly the tag name, never move a published tag, plus the repair procedure for a mis-named tag.
 
 ### Changed
+- Manifest: marketplace `description` names the documentation and content standards plugin.
 - Releases: tags `1.2.0`, `1.2.1`, `1.3.0` re-cut as annotated `v1.2.0`, `v1.2.1`, `v1.3.0` at their original commits and the bare refs deleted; GitHub releases backfilled for every historical tag.
 
 ## [1.4.0] - 2026-08-25

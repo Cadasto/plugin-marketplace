@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "cadasto",
-  "description": "AI-assistant plugins maintained by Cadasto B.V. — openEHR clinical modeling, spec-driven development, and Go coding standards.",
+  "description": "AI-assistant plugins maintained by Cadasto B.V. — openEHR clinical modeling, spec-driven development, Go coding standards, and documentation and content standards.",
   "metadata": {
-    "version": "1.4.0"
+    "version": "1.5.0"
   },
   "owner": {
     "name": "Cadasto B.V.",
@@ -113,6 +113,31 @@
         "source": "github",
         "repo": "Cadasto/sdd-plugin",
         "ref": "v0.4.0"
+      }
+    },
+    {
+      "name": "docs-editing",
+      "displayName": "Docs Editing",
+      "description": "Human-facing documentation and content standards for AI assistants — technical writing, copy editing, marketing copy, SEO and AI citability, with claims grounded in cited evidence.",
+      "version": "0.2.0",
+      "author": {
+        "name": "Cadasto B.V.",
+        "url": "https://github.com/Cadasto"
+      },
+      "homepage": "https://github.com/Cadasto/docs-editing-plugin",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "documentation",
+        "technical-writing",
+        "copy-editing",
+        "seo",
+        "content"
+      ],
+      "source": {
+        "source": "github",
+        "repo": "Cadasto/docs-editing-plugin",
+        "ref": "v0.2.0"
       }
     }
   ]

@@ -11,6 +11,15 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 
 ## [Unreleased]
 
+### Changed
+- Docs: the Cursor caveat — this catalog is not a Cursor marketplace — is stated once in `README.md` and once in `docs/install.md`, in the Cursor section each time, rather than twice per file.
+- Docs: `docs/authoring.md` points at the remote tag check before a pin is committed; `docs/testing.md` records the `source.repo` shape the validator enforces.
+- Docs: slash-command blocks are tagged `text`, shell blocks `bash`; Claude Code links use `docs.claude.com`.
+
+### Fixed
+- Docs: `docs/install.md` — the local-development install named `claude plugin add`, which is not a Claude Code command. Replaced with loading the working copy from `~/.claude/skills/<name>/`.
+- Docs: `docs/versioning.md` — release step 9 passed a prose placeholder to `gh release create --notes-file`. It now pipes the CHANGELOG section in through `-F -`.
+
 ## [1.5.0] - 2026-08-25
 
 ### Added

@@ -18,7 +18,7 @@ Changes that touch no entry — a docs fix, a validator improvement, tightening 
 
 ### The plugin-side consequence
 
-Each plugin repo's own release checklist must now end with **"update the entry in `Cadasto/plugin-marketplace`"**. Before pinning, the catalog tracked default branches and a plugin release propagated on its own; it no longer does. A plugin release that stops at `git push --follow-tags` is invisible to users.
+Each plugin repo's own release checklist ends with **"update the entry in `Cadasto/plugin-marketplace`"**. Before pinning, the catalog tracked default branches and a plugin release propagated on its own; it no longer does. A plugin release that stops at `git push --follow-tags` is invisible to users.
 
 ## The catalog cannot pin itself
 
@@ -39,8 +39,12 @@ Two consequences:
 6. **Smoke-test the Claude Code install** — see [testing.md](testing.md). Validation cannot tell you whether the pinned tag exists. Cursor installs from each plugin repo, not from this catalog.
 7. Commit (`chore(release): vX.Y.Z`) and tag: `git tag -a vX.Y.Z -m "plugin-marketplace vX.Y.Z"`.
 8. Push commits and the tag: `git push origin main --follow-tags`.
-9. Cut the GitHub release from the tag, titled **exactly** the tag name:
-   `gh release create vX.Y.Z --title "vX.Y.Z" --notes-file <the new CHANGELOG section>`.
+9. Cut the GitHub release from the tag, titled **exactly** the tag name, with the new CHANGELOG section as the body. `-F -` reads that body from standard input:
+
+   ```bash
+   awk '/^## \[X\.Y\.Z\]/{f=1;next} /^## \[/{f=0} f' CHANGELOG.md |
+     gh release create vX.Y.Z --title "vX.Y.Z" -F -
+   ```
 
 ## Tag and release naming
 

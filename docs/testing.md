@@ -16,7 +16,7 @@ Stdlib only — no network, no auth, no dependencies — so CI runs it directly 
 
 - **Marketplace shape** — `$schema` (SchemaStore URL), top-level `description` and `owner` (`name`, `email`, `url`), kebab-case name, and that nothing but `version` sits under `metadata`.
 - **Entry completeness** — every field in the [entry format](authoring.md#entry-format) is present, names are unique, `version` is `X.Y.Z`, `author` is `{name, url}`, `keywords` is a non-empty array.
-- **Release pinning** — `source.source` is `github`, `source.ref` exists, is a `vX.Y.Z` tag, and matches the entry's `version`. A missing or mistyped source type is an error, not a skip.
+- **Release pinning** — `source.source` is `github`, `source.repo` reads `owner/name`, and `source.ref` exists, is a `vX.Y.Z` tag, and matches the entry's `version`. A missing or mistyped source type is an error, not a skip.
 - **Cursor twin** — `.cursor-plugin/marketplace.json` equals the Claude manifest minus `$schema`. Drift is an error, not a warning; `--fix` regenerates it. The twin is a parity file, not Cursor's native multi-plugin schema.
 - **README table** — lists the same plugin names in the same order as the manifest. Descriptions are not compared.
 - **Changelog** — `metadata.version` has a matching `## [X.Y.Z] - YYYY-MM-DD` heading.
@@ -31,7 +31,7 @@ Complements the above rather than duplicating it: it knows the real manifest sch
 
 Validation proves the manifest is well-formed. It cannot prove the pinned tag exists or that the plugin installs — nothing here reaches the network. Before releasing a catalog change, install for real in Claude Code:
 
-```
+```text
 /plugin marketplace add Cadasto/plugin-marketplace     # or: update cadasto
 /plugin install <plugin>@cadasto
 ```

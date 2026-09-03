@@ -11,6 +11,11 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-09-04
+
+### Changed
+- Manifest: `go-coding` repinned to **v0.5.0** — the router now routes. A usage analysis of session transcripts found it loaded often and the skills it routes to almost never, so the release adds a table mapping the change in hand to the skill that owns it, a minimum checklist, trigger-first skill descriptions, a post-edit hook that names one matching skill per session, and a session banner naming the next step. The surface shrinks from nine skills to seven: `go-linting` is merged into `go-lint-setup`, and `/go-explain` is removed — a one-shot lookup the focused skills already answer. Go 1.27 is supported alongside the unchanged Go 1.26.4+ floor. `version` and `source.ref` moved together.
+
 ## [1.6.0] - 2026-08-26
 
 ### Added

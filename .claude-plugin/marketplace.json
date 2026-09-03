@@ -3,7 +3,7 @@
   "name": "cadasto",
   "description": "AI-assistant plugins maintained by Cadasto B.V. — openEHR clinical modeling, spec-driven development, Go coding standards, and documentation and content standards.",
   "metadata": {
-    "version": "1.6.0"
+    "version": "1.7.0"
   },
   "owner": {
     "name": "Cadasto B.V.",
@@ -68,7 +68,7 @@
       "name": "go-coding",
       "displayName": "Go Coding Standards",
       "description": "Idiomatic Go coding standards for AI assistants — formatting, errors, concurrency, testing, layout.",
-      "version": "0.4.1",
+      "version": "0.5.0",
       "author": {
         "name": "Cadasto B.V.",
         "url": "https://github.com/Cadasto"
@@ -86,7 +86,7 @@
       "source": {
         "source": "github",
         "repo": "Cadasto/go-coding-plugin",
-        "ref": "v0.4.1"
+        "ref": "v0.5.0"
       }
     },
     {

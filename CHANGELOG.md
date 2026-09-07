@@ -11,6 +11,11 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-09-08
+
+### Changed
+- Manifest: `sdd` repinned to **v0.5.0** — the plugin now owns the delivery pipeline as well as the document layer. `/sdd-deliver` drives one requirement from the dispatch preconditions through `sdd-implementer` workers, a per-task gate, and round 0 of a single findings ledger to a draft pull request; `/sdd-triage` works each review round back into that ledger; `/sdd-finalize` sweeps finished plans at a version bump, and a plan is flipped to done in place instead of moved to an archive. Two lanes, full and maintenance, scale the ceremony to whether a normative statement changes. The optional general engineering plugin leaves the surface; a quick start, prompt examples, and a 0.4.x upgrade table are added. The entry's `description` follows the plugin manifest. `version` and `source.ref` moved together.
+
 ## [1.7.0] - 2026-09-04
 
 ### Changed

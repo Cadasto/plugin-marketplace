@@ -19,7 +19,7 @@ This repository is the Claude Code marketplace for the plugins Cadasto maintains
 | [openehr-assistant](https://github.com/Cadasto/openehr-assistant-plugin)         | openEHR clinical modeling for AI assistants — archetypes, templates, compositions, AQL, CKM reuse search, and specification lookup.                         |
 | [openehr-assistant-dev](https://github.com/Cadasto/openehr-assistant-dev-plugin) | Maintainer plugin for developing the openEHR Assistant MCP server and plugin — authoring guides, prompts, MCP tools, examples, and managing releases |
 | [go-coding](https://github.com/Cadasto/go-coding-plugin)                         | Idiomatic Go coding standards for AI assistants — formatting, errors, concurrency, testing, layout. |
-| [sdd](https://github.com/Cadasto/sdd-plugin)                                     | Spec-Driven Development workflow for AI assistants — requirements, RFC-2119 specs, ADRs, and plans with stable identifiers, machine-checked traceability, and drift CI. |
+| [sdd](https://github.com/Cadasto/sdd-plugin)                                     | Spec-Driven Development for AI assistants — requirements, RFC-2119 specs, and ADRs with stable identifiers, machine-checked traceability, and the delivery pipeline that runs on them: plan, workers, review ledger, close-out. |
 | [docs-editing](https://github.com/Cadasto/docs-editing-plugin)                   | Human-facing documentation and content standards for AI assistants — technical writing, copy editing, marketing copy, SEO and AI citability, with claims grounded in cited evidence. |
 
 <!-- vale write-good.Weasel = YES -->

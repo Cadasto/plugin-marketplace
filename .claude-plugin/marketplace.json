@@ -3,7 +3,7 @@
   "name": "cadasto",
   "description": "AI-assistant plugins maintained by Cadasto B.V. — openEHR clinical modeling, spec-driven development, Go coding standards, and documentation and content standards.",
   "metadata": {
-    "version": "1.7.0"
+    "version": "1.8.0"
   },
   "owner": {
     "name": "Cadasto B.V.",
@@ -92,8 +92,8 @@
     {
       "name": "sdd",
       "displayName": "Spec-Driven Development",
-      "description": "Spec-Driven Development workflow for AI assistants — requirements, RFC-2119 specs, ADRs, and plans with stable identifiers, machine-checked traceability, and drift CI.",
-      "version": "0.4.1",
+      "description": "Spec-Driven Development for AI assistants — requirements, RFC-2119 specs, and ADRs with stable identifiers, machine-checked traceability, and the delivery pipeline that runs on them: plan, workers, review ledger, close-out.",
+      "version": "0.5.0",
       "author": {
         "name": "Cadasto B.V.",
         "url": "https://github.com/Cadasto"
@@ -112,7 +112,7 @@
       "source": {
         "source": "github",
         "repo": "Cadasto/sdd-plugin",
-        "ref": "v0.4.1"
+        "ref": "v0.5.0"
       }
     },
     {

@@ -11,6 +11,11 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 
 ## [Unreleased]
 
+## [1.8.1] - 2026-09-08
+
+### Changed
+- Manifest: `sdd` repinned to **v0.5.1** — agents no longer put requirement or probe identifiers in doc comments. A doc comment is written for whoever reads the code, in the host language's own convention; the identifiers move to test names and the implementing commit message, and the requirement-to-code link stays in the traceability map. `version` and `source.ref` moved together.
+
 ## [1.8.0] - 2026-09-08
 
 ### Changed

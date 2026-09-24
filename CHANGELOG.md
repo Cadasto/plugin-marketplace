@@ -11,6 +11,10 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+### Changed
+- Docs: `README.md` restructured into intro, fit and requirements paragraphs, a table of contents, and `Installation`, `Releases`, `Development`, `Documentation` sections; badge row added, including the catalog version.
+- Docs: each `docs/` page opens with an orienting paragraph under a sentence-case H1; `docs/testing.md` documents the Vale prose job and the CI triggers; `docs/versioning.md` adds a release step for the README version badge.
+
 ## [1.10.0] - 2026-09-24
 
 ### Changed

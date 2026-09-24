@@ -1,6 +1,6 @@
-# Authoring Catalog Entries
+# Catalog entry authoring conventions
 
-Authoring in this repository means editing **one array**: `plugins` in `.claude-plugin/marketplace.json`. The Cursor twin is regenerated from it. The README table and changelog stay hand-edited and are checked against it.
+This page is for maintainers who add, update, rename, or remove a plugin in the catalog. It defines the entry format, where each field's value comes from, and the steps for each change. Authoring here means editing **one array**: `plugins` in `.claude-plugin/marketplace.json`. `validate.py --fix` regenerates the Cursor twin from it; the README table and changelog stay hand-edited, and the validator checks them against it.
 
 ## The single source of truth
 
@@ -45,7 +45,7 @@ Every entry carries the full set of fields. None are optional here: `/plugin` us
 - **`description`, `version`, `keywords`**: copied **verbatim** from the plugin's own `.claude-plugin/plugin.json`. The catalog must never disagree with the plugin it points at. If a description reads poorly, fix it in the plugin repo and let it flow here on the next release; do not improve it only here.
 - **`name`**: must match the plugin's own `name`. This is the install id (`<name>@cadasto`), so changing it breaks every existing install.
 - **`source.ref`**: the `vX.Y.Z` release tag matching `version`. See [versioning.md](versioning.md).
-- **`category`**: **not** enum-validated by Claude Code; a typo passes silently and quietly removes the plugin from that filter. Use an established value: `development`, `productivity`, `security`, `testing`, `database`, `monitoring`, `deployment`, `design`, `automation`, `learning`.
+- **`category`**: **not** enum-validated by Claude Code; a typo passes silently and drops the plugin from that filter. Use an established value: `development`, `productivity`, `security`, `testing`, `database`, `monitoring`, `deployment`, `design`, `automation`, `learning`.
 - **`displayName`**: the human-readable name shown in the catalog UI.
 
 ## Adding a plugin

@@ -1,4 +1,6 @@
-# Installing from the Cadasto Marketplace
+# Installing the Cadasto Plugin Marketplace
+
+This page is for anyone installing Cadasto plugins: how to add the catalog to Claude Code, install and update its plugins, install the same plugins on Cursor, and load a plugin's working copy while developing it.
 
 This repository is a **catalog**, not a plugin. It contains no skills, agents, or commands, only the marketplace manifest that names each Cadasto plugin and which release to install. The source of truth is `.claude-plugin/marketplace.json` for [Claude Code](https://docs.claude.com/en/docs/claude-code/plugins); `.cursor-plugin/marketplace.json` is generated from it (`$schema` dropped) for field parity. Cursor installs are per plugin repository; see [Cursor](#cursor).
 

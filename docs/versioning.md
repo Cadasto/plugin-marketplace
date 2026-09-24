@@ -1,6 +1,6 @@
-# Versioning and Releases
+# Versioning and releases
 
-This catalog carries its own version in `metadata.version`, independent of the versions of the plugins it lists. It uses [Semantic Versioning](https://semver.org), read from the perspective of **someone who has installed from it**.
+This page is for maintainers cutting a catalog release: how `metadata.version` is bumped, why a plugin release needs a catalog release, and the release and tag-naming steps. This catalog carries its own version in `metadata.version`, independent of the versions of the plugins it lists. It uses [Semantic Versioning](https://semver.org), read from the perspective of **someone who has installed from it**.
 
 | Bump | When |
 |------|------|
@@ -33,22 +33,23 @@ Two consequences:
 
 1. Make the catalog change in `.claude-plugin/marketplace.json`; see [authoring.md](authoring.md).
 2. Bump `metadata.version` per the table above.
-3. Update the README table if the plugin list changed.
-4. Fold the change into a dated `## [X.Y.Z] - YYYY-MM-DD` section in [CHANGELOG.md](../CHANGELOG.md) (Keep a Changelog: groups in order Added, Changed, Deprecated, Removed, Fixed, Security).
-5. Run `python3 scripts/validate.py --fix` and `claude plugin validate .`.
-6. **Smoke-test the Claude Code install**; see [testing.md](testing.md). Validation cannot tell you whether the pinned tag exists. Cursor installs from each plugin repo, not from this catalog.
-7. Commit (`chore(release): vX.Y.Z`) and tag: `git tag -a vX.Y.Z -m "plugin-marketplace vX.Y.Z"`.
-8. Push commits and the tag: `git push origin main --follow-tags`.
-9. Cut the GitHub release from the tag, titled **exactly** the tag name, with the new CHANGELOG section as the body. `-F -` reads that body from standard input. Set `VER` to the release being cut (for example `1.6.0`); the same value drives the heading match, the tag, and the title:
+3. Update the README version badge to the new `metadata.version`.
+4. Update the README table if the plugin list changed.
+5. Fold the change into a dated `## [X.Y.Z] - YYYY-MM-DD` section in [CHANGELOG.md](../CHANGELOG.md) (Keep a Changelog: groups in order Added, Changed, Deprecated, Removed, Fixed, Security).
+6. Run `python3 scripts/validate.py --fix` and `claude plugin validate .`.
+7. **Smoke-test the Claude Code install**; see [testing.md](testing.md). Validation cannot tell you whether the pinned tag exists. Cursor installs from each plugin repo, not from this catalog.
+8. Commit (`chore(release): vX.Y.Z`) and tag: `git tag -a vX.Y.Z -m "plugin-marketplace vX.Y.Z"`.
+9. Push commits and the tag: `git push origin main --follow-tags`.
+10. Cut the GitHub release from the tag, titled **exactly** the tag name, with the new CHANGELOG section as the body. `-F -` reads that body from standard input. Set `VER` to the release being cut (for example `1.6.0`); the same value drives the heading match, the tag, and the title:
 
-   ```bash
-   VER=1.6.0
-   awk -v ver="$VER" '
-     $0 ~ "^## \\[" ver "\\]" {f=1; next}
-     /^## \[/ {f=0}
-     f
-   ' CHANGELOG.md | gh release create "v$VER" --title "v$VER" -F -
-   ```
+    ```bash
+    VER=1.6.0
+    awk -v ver="$VER" '
+      $0 ~ "^## \\[" ver "\\]" {f=1; next}
+      /^## \[/ {f=0}
+      f
+    ' CHANGELOG.md | gh release create "v$VER" --title "v$VER" -F -
+    ```
 
 ## Tag and release naming
 

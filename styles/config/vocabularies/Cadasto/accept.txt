@@ -36,3 +36,4 @@ subagents?
 [Bb]ackfill(ed|ing)?
 typo'd
 citability
+[Vv]endor(ed|ing|s)?

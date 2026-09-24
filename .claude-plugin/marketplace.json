@@ -3,7 +3,7 @@
   "name": "cadasto",
   "description": "AI-assistant plugins maintained by Cadasto B.V. — openEHR clinical modeling, spec-driven development, Go coding standards, and documentation and content standards.",
   "metadata": {
-    "version": "1.9.0"
+    "version": "1.10.0"
   },
   "owner": {
     "name": "Cadasto B.V.",
@@ -118,8 +118,8 @@
     {
       "name": "docs-editing",
       "displayName": "Docs Editing",
-      "description": "Human-facing documentation and content standards for AI assistants — technical writing, copy editing, marketing copy, SEO and AI citability, with claims grounded in cited evidence.",
-      "version": "0.3.0",
+      "description": "Human-facing documentation and content standards for AI assistants: technical writing, copy editing, AI-tell cleanup, marketing copy, SEO and AI citability, with claims grounded in cited evidence.",
+      "version": "0.4.0",
       "author": {
         "name": "Cadasto B.V.",
         "url": "https://github.com/Cadasto"
@@ -137,7 +137,7 @@
       "source": {
         "source": "github",
         "repo": "Cadasto/docs-editing-plugin",
-        "ref": "v0.3.0"
+        "ref": "v0.4.0"
       }
     }
   ]

@@ -4,13 +4,13 @@ A plugin marketplace maintained by [Cadasto B.V.](https://github.com/Cadasto) fo
 
 ## What is this?
 
-A **plugin** extends a coding assistant with skills, commands, agents, and tools — teaching it a domain, connecting it to a service, or giving it a specific workflow. A **marketplace** is a catalog of plugins you browse, install, and update from inside the assistant.
+A **plugin** extends a coding assistant with skills, commands, agents, and tools, teaching it a domain, connecting it to a service, or giving it a specific workflow. A **marketplace** is a catalog of plugins you browse, install, and update from inside the assistant.
 
 This repository is the Claude Code marketplace for the plugins Cadasto maintains. It is a catalog only: each plugin lives in its own repository and is listed here, pinned to a release tag. The source of truth is `.claude-plugin/marketplace.json`; `.cursor-plugin/marketplace.json` is generated from it for field parity.
 
 ## Available Plugins
 
-<!-- Descriptions are copied verbatim from each plugin's own plugin.json — see
+<!-- Descriptions are copied verbatim from each plugin's own plugin.json; see
      docs/authoring.md. Reword them in the plugin repo, never here. -->
 <!-- vale write-good.Weasel = NO -->
 
@@ -20,7 +20,7 @@ This repository is the Claude Code marketplace for the plugins Cadasto maintains
 | [openehr-assistant-dev](https://github.com/Cadasto/openehr-assistant-dev-plugin) | Maintainer plugin for developing the openEHR Assistant MCP server and plugin — authoring guides, prompts, MCP tools, examples, and managing releases |
 | [go-coding](https://github.com/Cadasto/go-coding-plugin)                         | Idiomatic Go coding standards for AI assistants — formatting, errors, concurrency, testing, layout. |
 | [sdd](https://github.com/Cadasto/sdd-plugin)                                     | Spec-Driven Development for AI assistants — requirements, RFC-2119 specs, and ADRs with stable identifiers, machine-checked traceability, and the delivery pipeline that runs on them: plan, workers, review ledger, close-out. |
-| [docs-editing](https://github.com/Cadasto/docs-editing-plugin)                   | Human-facing documentation and content standards for AI assistants — technical writing, copy editing, marketing copy, SEO and AI citability, with claims grounded in cited evidence. |
+| [docs-editing](https://github.com/Cadasto/docs-editing-plugin)                   | Human-facing documentation and content standards for AI assistants: technical writing, copy editing, AI-tell cleanup, marketing copy, SEO and AI citability, with claims grounded in cited evidence. |
 
 <!-- vale write-good.Weasel = YES -->
 
@@ -48,7 +48,7 @@ To pick up new plugins and released versions later:
 
 ### Cursor
 
-Install each plugin from its own repository. Cursor's [Team Marketplace](https://cursor.com/docs/plugins) indexes plugins that live in the repository you import, so importing this catalog of remote sources finds nothing to install. Each Cadasto plugin ships `.cursor-plugin/plugin.json` and is added on its own — see [docs/install.md](docs/install.md#cursor).
+Install each plugin from its own repository. Cursor's [Team Marketplace](https://cursor.com/docs/plugins) indexes plugins that live in the repository you import, so importing this catalog of remote sources finds nothing to install. Each Cadasto plugin ships `.cursor-plugin/plugin.json` and is added on its own; see [docs/install.md](docs/install.md#cursor).
 
 ## Releases
 

@@ -20,7 +20,7 @@ Thumbs.db
 
 # Input files
 input/
-# Vale style packages (downloadable, not source — the vocabulary stays tracked).
+# Vale style packages (downloadable, not source; the vocabulary stays tracked).
 # `styles/*` rather than `styles/`: git cannot re-include a path whose parent
 # directory is itself excluded, so the negation below would never fire.
 styles/*

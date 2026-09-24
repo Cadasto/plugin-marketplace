@@ -1,6 +1,6 @@
 # Installing from the Cadasto Marketplace
 
-This repository is a **catalog**, not a plugin. It contains no skills, agents, or commands — only the marketplace manifest that names each Cadasto plugin and which release to install. The source of truth is `.claude-plugin/marketplace.json` for [Claude Code](https://docs.claude.com/en/docs/claude-code/plugins); `.cursor-plugin/marketplace.json` is generated from it (`$schema` dropped) for field parity. Cursor installs are per plugin repository — see [Cursor](#cursor).
+This repository is a **catalog**, not a plugin. It contains no skills, agents, or commands, only the marketplace manifest that names each Cadasto plugin and which release to install. The source of truth is `.claude-plugin/marketplace.json` for [Claude Code](https://docs.claude.com/en/docs/claude-code/plugins); `.cursor-plugin/marketplace.json` is generated from it (`$schema` dropped) for field parity. Cursor installs are per plugin repository; see [Cursor](#cursor).
 
 ## Claude Code
 
@@ -27,7 +27,7 @@ The current names are in the [README plugin table](../README.md#available-plugin
 /plugin update <plugin>                # move a plugin to the catalog's current pin
 ```
 
-Restart the session for an update to take effect. Because entries are pinned (see [versioning.md](versioning.md)), `/plugin update` moves you to the version this catalog names — not to whatever is on the plugin repo's default branch.
+Restart the session for an update to take effect. Because entries are pinned (see [versioning.md](versioning.md)), `/plugin update` moves you to the version this catalog names, not to whatever is on the plugin repo's default branch.
 
 ### Inspect
 
@@ -38,13 +38,13 @@ claude plugin details <plugin>         # component inventory + projected token c
 
 ## Cursor
 
-Install each plugin from its own repository. Cursor's [Team Marketplace](https://cursor.com/docs/plugins) indexes plugins that live in the repository you import, and this catalog holds no plugin directories — only references to remote ones — so importing it in Cursor finds nothing to install.
+Install each plugin from its own repository. Cursor's [Team Marketplace](https://cursor.com/docs/plugins) indexes plugins that live in the repository you import, and this catalog holds no plugin directories (only references to remote ones), so importing it in Cursor finds nothing to install.
 
 Each plugin repo ships `.cursor-plugin/plugin.json` (skills, agents, rules, hooks). Add that repo locally, or submit it on its own, following that repo's `docs/install.md`.
 
 ## Local development against a plugin
 
-To work on a plugin itself, bypass the catalog and load the working copy directly — it picks up uncommitted changes, which a pinned catalog entry deliberately does not. Place or symlink the checkout under the skills directory:
+To work on a plugin itself, bypass the catalog and load the working copy directly; it picks up uncommitted changes, which a pinned catalog entry deliberately does not. Place or symlink the checkout under the skills directory:
 
 ```bash
 ln -s /path/to/go-coding-plugin ~/.claude/skills/go-coding

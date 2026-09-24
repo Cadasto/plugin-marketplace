@@ -1,24 +1,33 @@
 # AGENTS.md
 
-Instructions for Claude Code and subagents working in this repository.
+Instructions for Claude Code, Cursor, and other agents working in this repository.
 
-## Project
+## Project Overview
 
-This is the **Cadasto Plugin Marketplace**, the Claude Code catalog maintained by Cadasto B.V. Every listed plugin also ships a Cursor manifest and is installed on Cursor from its own repository. This repo is a catalog only: every plugin lives elsewhere and is referenced here by a pinned release tag. Nothing here is a plugin component; if you are writing a skill, agent, command, or hook, you are in the wrong repository.
+This is the **Cadasto Plugin Marketplace**, the Claude Code catalog maintained by Cadasto B.V. Every listed plugin also ships a Cursor manifest and is installed on Cursor from its own repository. This repo is a catalog only: every plugin lives elsewhere and is referenced here by a pinned release tag. Nothing here is a plugin component; if you are writing a skill, agent, command, or hook, you are in the wrong repository. Marketplace name: `cadasto`; users install with `/plugin install <plugin>@cadasto`. The human pitch is in [README.md](README.md).
 
-## Structure
+## Key Conventions
+
+- Plugin names are kebab-case, unique, and must match the plugin's own `name`; it is the install id
+- Repository references use the `Cadasto/…` casing consistently
+- `description`, `version`, `keywords` are copied verbatim from the plugin's `plugin.json`; if the wording is poor, fix it **in the plugin repo** and let it flow here on the next release
+- `category` is not enum-validated; a typo passes silently and drops the plugin from that filter. Use an established value (`development`, `productivity`, `security`, `testing`, …)
+- Marketplace `description` and `owner` live at the top level; the only field under `metadata` is `version` (house rule; Claude also accepts those under `metadata`)
+- A plugin with no `vX.Y.Z` release tag cannot be pinned, so it does not belong in the catalog yet
+
+## Repository Layout
 
 | Path | Role |
 |------|------|
 | `.claude-plugin/marketplace.json` | **Source of truth.** Every catalog change starts here. |
 | `.cursor-plugin/marketplace.json` | **Generated**: Claude manifest minus `$schema`, for field parity. Not Cursor's native schema. Never hand-edit. |
-| `README.md` | Human-facing entry point; its plugin table lists the same names in the same order. |
+| `README.md` | Human-facing entry point; its plugin table lists the same names in the same order, and its version badge shows `metadata.version`. |
 | `CHANGELOG.md` | Per-release catalog history (Keep a Changelog). |
 | `docs/` | The detailed guides. See the table below. |
-| `scripts/validate.py` | The full check; `--fix` regenerates the Cursor twin. |
-| `.github/workflows/validate.yml` | Runs the validator on every push and PR. |
-
-Marketplace name: `cadasto`. Users install with `/plugin install <plugin>@cadasto`.
+| `scripts/validate.py` | The manifest check; `--fix` regenerates the Cursor twin. |
+| `.vale.ini` | Vale config; `AGENTS.md`, `.claude/CLAUDE.md` and `CHANGELOG.md` get a relaxed section (base `Vale` style only). |
+| `styles/config/vocabularies/Cadasto/` | Vale vocabulary, tracked; the rest of `styles/` comes from `vale sync` and is gitignored. |
+| `.github/workflows/validate.yml` | Two jobs, on every pull request and on push to `main`: `validate` runs `scripts/validate.py`; `prose` runs Vale 3.18.0 with `--minAlertLevel=error`. |
 
 ## Where things are documented
 
@@ -28,18 +37,16 @@ Keep detail in `docs/` and keep this file a brief. When a convention changes, up
 |----------|------|
 | [docs/install.md](docs/install.md) | Claude Code marketplace add/install/update; Cursor per-plugin install; local development installs |
 | [docs/authoring.md](docs/authoring.md) | Entry format, field provenance, add / update / rename / remove |
-| [docs/testing.md](docs/testing.md) | What each validator checks; the manual smoke test |
+| [docs/testing.md](docs/testing.md) | What each validator checks; the prose lint; CI; the manual smoke test |
 | [docs/versioning.md](docs/versioning.md) | Catalog SemVer rules, plugin-vs-catalog bumps, release steps |
 
 ## Making a catalog change
 
-1. Edit the `plugins` array in `.claude-plugin/marketplace.json`. The full entry format is in [docs/authoring.md](docs/authoring.md#entry-format); every field there is required, and `description`, `version`, and `keywords` are copied **verbatim** from the plugin's own `plugin.json`.
+1. Edit the `plugins` array in `.claude-plugin/marketplace.json`. The full entry format is in [docs/authoring.md](docs/authoring.md#entry-format); every field there is required, and the three verbatim fields (see [Key Conventions](#key-conventions)) come from the plugin's own `plugin.json`.
 2. Pin `source.ref` to the `vX.Y.Z` tag matching the entry's `version`.
 3. Mirror the change in the README table (same plugin names, same order).
-4. Bump `metadata.version` and add a `CHANGELOG.md` entry.
-5. Run `python3 scripts/validate.py --fix` and `claude plugin validate .`.
-
-`validate.py` (what CI runs) fails on a README name/order mismatch, on a `metadata.version` with no dated changelog heading, and on a stale Cursor twin. `claude plugin validate .` is a local schema check and is not in CI.
+4. Bump `metadata.version`, update the README version badge to the same value, and add a `CHANGELOG.md` entry. No validator checks the badge.
+5. Run the checks under [Development](#development).
 
 ### Reacting to a plugin release
 
@@ -50,6 +57,26 @@ Verify the tag exists on the remote before pinning. Nothing in the validator rea
 ```bash
 git ls-remote --tags https://github.com/Cadasto/<repo>.git | grep 'v1.2.3$'
 ```
+
+## Development
+
+```bash
+python3 scripts/validate.py --fix           # regenerate the Cursor twin, then verify (CI runs it without --fix)
+claude plugin validate .                    # Claude Code's own schema validator (local only)
+vale sync && vale --minAlertLevel=error .   # the CI prose gate (sync fetches styles/); must report 0 errors
+```
+
+Run all of them. `claude plugin validate .` warns about unknown fields, which is the fastest way to catch a typo'd key that `validate.py` has no rule for. See [docs/testing.md](docs/testing.md) for what each covers and why validation alone is not sufficient before a release.
+
+### CHANGELOG style
+
+- Entries accumulate under `## [Unreleased]` and fold into a dated `## [X.Y.Z] - YYYY-MM-DD` section at release.
+- Keep a Changelog groups in order (**Added, Changed, Deprecated, Removed, Fixed, Security**), omitting empty groups.
+- One terse line per bullet; lead with the subsystem (`Manifest:`, `Plugins:`, `Cursor:`, `Docs:`, `CI:`) and use backticks for file, field, and plugin names. No rationale or PR links; that belongs in the commit message.
+
+### Commit Messages
+- Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), e.g. `feat(plugins): add sdd to the catalog`, `fix(manifest): correct source repo for plugin-x`, `chore(release): v1.4.0`.
+- Scopes: `plugins`, `manifest`, `cursor`, `docs`, `ci`.
 
 ### Versioning
 
@@ -69,34 +96,6 @@ Fixed rules; do not re-decide them per release. Full detail and the repair proce
 - Tags are **annotated** (`git tag -a`), never lightweight.
 - **Every tag gets a GitHub release**, titled **exactly** the tag name (`v1.4.0`, no themed titles, no `Release ` prefix). The CHANGELOG section is the body.
 - **Never move or reuse a published tag.** Cut the next patch instead.
-
-### CHANGELOG style
-
-- Entries accumulate under `## [Unreleased]` and fold into a dated `## [X.Y.Z] - YYYY-MM-DD` section at release.
-- Keep a Changelog groups in order (**Added, Changed, Deprecated, Removed, Fixed, Security**), omitting empty groups.
-- One terse line per bullet; lead with the subsystem (`Manifest:`, `Plugins:`, `Cursor:`, `Docs:`, `CI:`) and use backticks for file, field, and plugin names. No rationale or PR links; that belongs in the commit message.
-
-## Validation
-
-```bash
-python3 scripts/validate.py     # conventions, Cursor twin, README table, changelog (what CI runs)
-claude plugin validate .        # Claude Code's own schema validator
-```
-
-Run both. The second one warns about unknown fields, which is the fastest way to catch a typo'd key that `validate.py` has no rule for. See [docs/testing.md](docs/testing.md) for what each covers and why validation alone is not sufficient before a release.
-
-## Key Conventions
-
-- Plugin names are kebab-case, unique, and must match the plugin's own `name`; it is the install id
-- Repository references use the `Cadasto/…` casing consistently
-- `description`, `version`, `keywords` are copied verbatim from the plugin's `plugin.json`; if the wording is poor, fix it **in the plugin repo** and let it flow here on the next release
-- `category` is not enum-validated; a typo passes silently and drops the plugin from that filter. Use an established value (`development`, `productivity`, `security`, `testing`, …)
-- Marketplace `description` and `owner` live at the top level; the only field under `metadata` is `version` (house rule; Claude also accepts those under `metadata`)
-- A plugin with no `vX.Y.Z` release tag cannot be pinned, so it does not belong in the catalog yet
-
-### Commit Messages
-- Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), e.g. `feat(plugins): add sdd to the catalog`, `fix(manifest): correct source repo for plugin-x`, `chore(release): v1.4.0`.
-- Scopes: `plugins`, `manifest`, `cursor`, `docs`, `ci`.
 
 ## Gotchas
 

@@ -11,6 +11,12 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 
 ## [Unreleased]
 
+## [1.9.0] - 2026-09-24
+
+### Changed
+- Manifest: `sdd` repinned to **v0.6.0** — the rules the plugin stated are now enforced by one vendored, versioned, self-testing gate, `sdd-check`, which checks the traceability chain both ways, lints the checkable prose rules and generates every derived index. `/sdd-scaffold --upgrade` moves a 0.5.x repository across without overwriting hand-written content. v0.5.1 was never listed here; its fixes ship inside v0.6.0. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Manifest: `go-coding` repinned to **v0.6.0** — the skills now draw on Google's normative Style Decisions, not only its advisory Best Practices: eight sourced rules across the layout, error, testing and idiom skills, each tied to the linter that enforces it, and a weekly link check on every cited source. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+
 ## [1.8.0] - 2026-09-08
 
 ### Changed

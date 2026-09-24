@@ -7,50 +7,53 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Keep a Changelog: https://keepachangelog.com/en/1.1.0/
 - Semantic Versioning: https://semver.org/spec/v2.0.0.html
 
-Versions here track the **catalog**, not the plugins it lists — see [docs/versioning.md](docs/versioning.md).
+Versions here track the **catalog**, not the plugins it lists; see [docs/versioning.md](docs/versioning.md).
 
 ## [Unreleased]
+
+### Changed
+- Docs: em dashes removed from `README.md`, `AGENTS.md`, `docs/`, this changelog, `.vale.ini`, `.gitignore` and `scripts/validate.py`; entry `description` fields and their README cells stay verbatim from each plugin.
 
 ## [1.9.0] - 2026-09-24
 
 ### Changed
-- Manifest: `sdd` repinned to **v0.6.0** — the rules the plugin stated are now enforced by one vendored, versioned, self-testing gate, `sdd-check`, which checks the traceability chain both ways, lints the checkable prose rules and generates every derived index. `/sdd-scaffold --upgrade` moves a 0.5.x repository across without overwriting hand-written content. v0.5.1 was never listed here; its fixes ship inside v0.6.0. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
-- Manifest: `go-coding` repinned to **v0.6.0** — the skills now draw on Google's normative Style Decisions, not only its advisory Best Practices: eight sourced rules across the layout, error, testing and idiom skills, each tied to the linter that enforces it, and a weekly link check on every cited source. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Manifest: `sdd` repinned to **v0.6.0**: the rules the plugin stated are now enforced by one vendored, versioned, self-testing gate, `sdd-check`, which checks the traceability chain both ways, lints the checkable prose rules and generates every derived index. `/sdd-scaffold --upgrade` moves a 0.5.x repository across without overwriting hand-written content. v0.5.1 was never listed here; its fixes ship inside v0.6.0. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Manifest: `go-coding` repinned to **v0.6.0**: the skills now draw on Google's normative Style Decisions, not only its advisory Best Practices: eight sourced rules across the layout, error, testing and idiom skills, each tied to the linter that enforces it, and a weekly link check on every cited source. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
 
 ## [1.8.0] - 2026-09-08
 
 ### Changed
-- Manifest: `sdd` repinned to **v0.5.0** — the plugin now owns the delivery pipeline as well as the document layer. `/sdd-deliver` drives one requirement from the dispatch preconditions through `sdd-implementer` workers, a per-task gate, and round 0 of a single findings ledger to a draft pull request; `/sdd-triage` works each review round back into that ledger; `/sdd-finalize` sweeps finished plans at a version bump, and a plan is flipped to done in place instead of moved to an archive. Two lanes, full and maintenance, scale the ceremony to whether a normative statement changes. The optional general engineering plugin leaves the surface; a quick start, prompt examples, and a 0.4.x upgrade table are added. The entry's `description` follows the plugin manifest. `version` and `source.ref` moved together.
+- Manifest: `sdd` repinned to **v0.5.0**: the plugin now owns the delivery pipeline as well as the document layer. `/sdd-deliver` drives one requirement from the dispatch preconditions through `sdd-implementer` workers, a per-task gate, and round 0 of a single findings ledger to a draft pull request; `/sdd-triage` works each review round back into that ledger; `/sdd-finalize` sweeps finished plans at a version bump, and a plan is flipped to done in place instead of moved to an archive. Two lanes, full and maintenance, scale the ceremony to whether a normative statement changes. The optional general engineering plugin leaves the surface; a quick start, prompt examples, and a 0.4.x upgrade table are added. The entry's `description` follows the plugin manifest. `version` and `source.ref` moved together.
 
 ## [1.7.0] - 2026-09-04
 
 ### Changed
-- Manifest: `go-coding` repinned to **v0.5.0** — the router now routes. A usage analysis of session transcripts found it loaded often and the skills it routes to almost never, so the release adds a table mapping the change in hand to the skill that owns it, a minimum checklist, trigger-first skill descriptions, a post-edit hook that names one matching skill per session, and a session banner naming the next step. The surface shrinks from nine skills to seven: `go-linting` is merged into `go-lint-setup`, and `/go-explain` is removed — a one-shot lookup the focused skills already answer. Go 1.27 is supported alongside the unchanged Go 1.26.4+ floor. `version` and `source.ref` moved together.
+- Manifest: `go-coding` repinned to **v0.5.0**: the router now routes. A usage analysis of session transcripts found it loaded often and the skills it routes to almost never, so the release adds a table mapping the change in hand to the skill that owns it, a minimum checklist, trigger-first skill descriptions, a post-edit hook that names one matching skill per session, and a session banner naming the next step. The surface shrinks from nine skills to seven: `go-linting` is merged into `go-lint-setup`, and `/go-explain` is removed, a one-shot lookup the focused skills already answer. Go 1.27 is supported alongside the unchanged Go 1.26.4+ floor. `version` and `source.ref` moved together.
 
 ## [1.6.0] - 2026-08-26
 
 ### Added
-- CI: `.vale.ini` plus a `prose` job pinned to Vale 3.18.0 — gates on errors only, with warnings and suggestions left as a backlog. Project terminology lives in `styles/config/vocabularies/Cadasto/`; the downloaded packages under `styles/` are gitignored.
+- CI: `.vale.ini` plus a `prose` job pinned to Vale 3.18.0: gates on errors only, with warnings and suggestions left as a backlog. Project terminology lives in `styles/config/vocabularies/Cadasto/`; the downloaded packages under `styles/` are gitignored.
 
 ### Changed
-- Manifest: `openehr-assistant` repinned to **v0.9.2** — the reworded `description` (archetypes, templates, compositions, AQL, CKM reuse search, and specification lookup), the `claude plugin add` correction, that repo's own Vale setup, and the follow-up docs fixes it shipped. `version` and `source.ref` moved together.
-- Manifest: `openehr-assistant-dev` repinned to **v0.3.0** — corrects a `claude plugin add` install command that never existed, which the `release-workflow` skill and `repo-conventions-scout` agent had propagated into the repos that plugin documents, and adds the marketplace repin step to `release-workflow`. `version` and `source.ref` moved together.
-- Manifest: `sdd` and `go-coding` repinned to **v0.4.1** — both correct a `PostToolUse` hook timeout that was five hours rather than twenty seconds (Claude Code reads the field in seconds), plus agents that described themselves as read-only while holding `Bash`. `sdd` also stops its always-on router inheriting every tool; `go-coding` gives `go-lint-setup` the `Bash` it needs to run the migration it offers. `version` and `source.ref` moved together for both.
-- Manifest: `docs-editing` repinned to **v0.3.0** — the shipped Vale setup now lints clean on first run (a seeded vocabulary, `Google.Quotes` off, and `Vocab` renamed off this organisation's name), plus corrections to three tooling claims its docs made without running the tool. `version` and `source.ref` moved together.
-- Docs: the Cursor caveat — this catalog is not a Cursor marketplace — is stated once in `README.md` and once in `docs/install.md`, in the Cursor section each time, rather than twice per file.
+- Manifest: `openehr-assistant` repinned to **v0.9.2**: the reworded `description` (archetypes, templates, compositions, AQL, CKM reuse search, and specification lookup), the `claude plugin add` correction, that repo's own Vale setup, and the follow-up docs fixes it shipped. `version` and `source.ref` moved together.
+- Manifest: `openehr-assistant-dev` repinned to **v0.3.0**: corrects a `claude plugin add` install command that never existed, which the `release-workflow` skill and `repo-conventions-scout` agent had propagated into the repos that plugin documents, and adds the marketplace repin step to `release-workflow`. `version` and `source.ref` moved together.
+- Manifest: `sdd` and `go-coding` repinned to **v0.4.1**: both correct a `PostToolUse` hook timeout that was five hours rather than twenty seconds (Claude Code reads the field in seconds), plus agents that described themselves as read-only while holding `Bash`. `sdd` also stops its always-on router inheriting every tool; `go-coding` gives `go-lint-setup` the `Bash` it needs to run the migration it offers. `version` and `source.ref` moved together for both.
+- Manifest: `docs-editing` repinned to **v0.3.0**: the shipped Vale setup now lints clean on first run (a seeded vocabulary, `Google.Quotes` off, and `Vocab` renamed off this organisation's name), plus corrections to three tooling claims its docs made without running the tool. `version` and `source.ref` moved together.
+- Docs: the Cursor caveat (this catalog is not a Cursor marketplace) is stated once in `README.md` and once in `docs/install.md`, in the Cursor section each time, rather than twice per file.
 - Docs: `docs/authoring.md` points at the remote tag check before a pin is committed; `docs/testing.md` records the `source.repo` shape the validator enforces.
 - Docs: slash-command blocks are tagged `text`, shell blocks `bash`; Claude Code links use `docs.claude.com`.
 
 ### Fixed
-- Docs: `docs/install.md` — the local-development install named `claude plugin add`, which is not a Claude Code command. Replaced with loading the working copy from `~/.claude/skills/<name>/`.
-- Docs: `docs/versioning.md` — release step 9 passed a prose placeholder to `gh release create --notes-file`. It now pipes the CHANGELOG section in through `-F -`, with the version held in `VER` so the heading match, the tag, and the title cannot drift; the first form matched a literal `[X.Y.Z]`, which no heading ever equals.
-- Docs: `.vale.ini` — the copied header still described the docs-editing reference config and cited sections of a style guide this repo does not carry.
+- Docs: `docs/install.md`: the local-development install named `claude plugin add`, which is not a Claude Code command. Replaced with loading the working copy from `~/.claude/skills/<name>/`.
+- Docs: `docs/versioning.md`: release step 9 passed a prose placeholder to `gh release create --notes-file`. It now pipes the CHANGELOG section in through `-F -`, with the version held in `VER` so the heading match, the tag, and the title cannot drift; the first form matched a literal `[X.Y.Z]`, which no heading ever equals.
+- Docs: `.vale.ini`: the copied header still described the docs-editing reference config and cited sections of a style guide this repo does not carry.
 
 ## [1.5.0] - 2026-08-25
 
 ### Added
-- Plugins: `docs-editing` — documentation, editing and content standards (`Cadasto/docs-editing-plugin`), pinned to `v0.2.0`.
-- Docs: `docs/versioning.md`, `AGENTS.md` — tag and release naming rules: annotated `vX.Y.Z` tags, a GitHub release per tag titled exactly the tag name, never move a published tag, plus the repair procedure for a mis-named tag.
+- Plugins: `docs-editing`: documentation, editing and content standards (`Cadasto/docs-editing-plugin`), pinned to `v0.2.0`.
+- Docs: `docs/versioning.md`, `AGENTS.md`: tag and release naming rules: annotated `vX.Y.Z` tags, a GitHub release per tag titled exactly the tag name, never move a published tag, plus the repair procedure for a mis-named tag.
 
 ### Changed
 - Manifest: marketplace `description` names the documentation and content standards plugin.
@@ -80,7 +83,7 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 ## [1.3.0] - 2026-06-18
 
 ### Added
-- Plugins: `sdd` — Spec-Driven Development workflow (`Cadasto/sdd-plugin`).
+- Plugins: `sdd`: Spec-Driven Development workflow (`Cadasto/sdd-plugin`).
 
 ## [1.2.1] - 2026-06-14
 
@@ -90,12 +93,12 @@ Versions here track the **catalog**, not the plugins it lists — see [docs/vers
 ## [1.2.0] - 2026-06-13
 
 ### Added
-- Plugins: `go-coding-plugin` — idiomatic Go coding standards (`Cadasto/go-coding-plugin`).
+- Plugins: `go-coding-plugin`: idiomatic Go coding standards (`Cadasto/go-coding-plugin`).
 
 ## [1.1.0] - 2026-06-07
 
 ### Added
-- Plugins: `openehr-assistant-dev` — maintainer plugin for the openEHR Assistant MCP server and plugin (`Cadasto/openehr-assistant-dev-plugin`).
+- Plugins: `openehr-assistant-dev`: maintainer plugin for the openEHR Assistant MCP server and plugin (`Cadasto/openehr-assistant-dev-plugin`).
 
 ## [1.0.0] - 2026-03-16
 

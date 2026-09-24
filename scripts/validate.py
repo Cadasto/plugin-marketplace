@@ -2,14 +2,14 @@
 """Validate the Cadasto marketplace manifests and keep the Cursor twin in sync.
 
 Checks, in order:
-  1. `.claude-plugin/marketplace.json` — required fields, naming rules, and the
+  1. `.claude-plugin/marketplace.json`: required fields, naming rules, and the
      conventions this marketplace commits to (pinned GitHub sources, full metadata).
-  2. `.cursor-plugin/marketplace.json` — must equal the Claude manifest with the
+  2. `.cursor-plugin/marketplace.json`: must equal the Claude manifest with the
      `$schema` key dropped. Generated for field parity, not as Cursor's native
      multi-plugin schema (that schema expects in-repo plugin paths).
-  3. `README.md` — the "Available Plugins" table must list exactly the plugins
+  3. `README.md`: the "Available Plugins" table must list exactly the plugins
      in the manifest, in the same order (names only; descriptions may be shortened).
-  4. `CHANGELOG.md` — the catalog version in `metadata.version` must have a
+  4. `CHANGELOG.md`: the catalog version in `metadata.version` must have a
      matching dated released section, so a bump cannot ship undocumented.
 
 Usage:
@@ -156,7 +156,7 @@ def validate_claude(m):
         # Unpinned sources ship every push to the default branch straight to users.
         ref = src.get("ref", "")
         if not ref:
-            err(f"{label}: source.ref missing — pin the entry to a release tag")
+            err(f"{label}: source.ref missing; pin the entry to a release tag")
         elif not REF_RE.match(ref):
             err(f"{label}: source.ref '{ref}' is not a vX.Y.Z release tag")
         elif version and ref != f"v{version}":
@@ -170,7 +170,7 @@ def validate_cursor(claude):
     if actual != cursor_twin(claude):
         err(
             ".cursor-plugin/marketplace.json is out of sync with "
-            ".claude-plugin/marketplace.json — run: python3 scripts/validate.py --fix"
+            ".claude-plugin/marketplace.json; run: python3 scripts/validate.py --fix"
         )
 
 
@@ -191,7 +191,7 @@ def validate_readme(claude):
 def validate_changelog(claude):
     version = claude.get("metadata", {}).get("version")
     if not version:
-        err("marketplace.json: metadata.version missing — the catalog's release counter")
+        err("marketplace.json: metadata.version missing (the catalog's release counter)")
         return
     text = read_text(CHANGELOG)
     if text is None:
@@ -227,7 +227,7 @@ def main():
         return 1
 
     count = len(claude.get("plugins", []))
-    print(f"✔ marketplace '{claude['name']}' valid — {count} plugin(s), Cursor twin in sync")
+    print(f"✔ marketplace '{claude['name']}' valid: {count} plugin(s), Cursor twin in sync")
     return 0
 
 

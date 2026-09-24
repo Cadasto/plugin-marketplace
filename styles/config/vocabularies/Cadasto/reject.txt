@@ -1,5 +1,5 @@
 # Vocabulary the house style bans outright (style-guide.md §2, claims-and-evidence.md §2).
-# Filler intensifiers and unfalsifiable superlatives — the linter catches these, not a reviewer.
+# Filler intensifiers and unfalsifiable superlatives: the linter catches these, not a reviewer.
 seamlessly
 effortlessly
 cutting-edge

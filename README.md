@@ -4,13 +4,13 @@ A plugin marketplace maintained by [Cadasto B.V.](https://github.com/Cadasto) fo
 
 ## What is this?
 
-A **plugin** extends a coding assistant with skills, commands, agents, and tools — teaching it a domain, connecting it to a service, or giving it a specific workflow. A **marketplace** is a catalog of plugins you browse, install, and update from inside the assistant.
+A **plugin** extends a coding assistant with skills, commands, agents, and tools, teaching it a domain, connecting it to a service, or giving it a specific workflow. A **marketplace** is a catalog of plugins you browse, install, and update from inside the assistant.
 
 This repository is the Claude Code marketplace for the plugins Cadasto maintains. It is a catalog only: each plugin lives in its own repository and is listed here, pinned to a release tag. The source of truth is `.claude-plugin/marketplace.json`; `.cursor-plugin/marketplace.json` is generated from it for field parity.
 
 ## Available Plugins
 
-<!-- Descriptions are copied verbatim from each plugin's own plugin.json — see
+<!-- Descriptions are copied verbatim from each plugin's own plugin.json; see
      docs/authoring.md. Reword them in the plugin repo, never here. -->
 <!-- vale write-good.Weasel = NO -->
 
@@ -48,7 +48,7 @@ To pick up new plugins and released versions later:
 
 ### Cursor
 
-Install each plugin from its own repository. Cursor's [Team Marketplace](https://cursor.com/docs/plugins) indexes plugins that live in the repository you import, so importing this catalog of remote sources finds nothing to install. Each Cadasto plugin ships `.cursor-plugin/plugin.json` and is added on its own — see [docs/install.md](docs/install.md#cursor).
+Install each plugin from its own repository. Cursor's [Team Marketplace](https://cursor.com/docs/plugins) indexes plugins that live in the repository you import, so importing this catalog of remote sources finds nothing to install. Each Cadasto plugin ships `.cursor-plugin/plugin.json` and is added on its own; see [docs/install.md](docs/install.md#cursor).
 
 ## Releases
 

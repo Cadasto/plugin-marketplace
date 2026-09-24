@@ -11,7 +11,10 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.10.0] - 2026-09-24
+
 ### Changed
+- Manifest: `docs-editing` repinned to **v0.4.0**: adds `/humanize`, which removes AI writing patterns from existing prose and never judges authorship, backed by an `ai-tells` catalogue and a seven-rule `ai-tells` Vale style; the house style now keeps em dashes out of assistant-written prose while keeping a human author's. The entry's `description` follows the plugin manifest; `keywords` are unchanged. `version` and `source.ref` moved together.
 - Docs: em dashes removed from `README.md`, `AGENTS.md`, `docs/`, this changelog, `.vale.ini`, `.gitignore` and `scripts/validate.py`; entry `description` fields and their README cells stay verbatim from each plugin.
 
 ## [1.9.0] - 2026-09-24

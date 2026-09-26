@@ -9,9 +9,10 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 Versions here track the **catalog**, not the plugins it lists; see [docs/versioning.md](docs/versioning.md).
 
-## [Unreleased]
+## [1.11.0] - 2026-09-27
 
 ### Changed
+- Manifest: `sdd` repinned to **v0.7.0**: a plan is now a working file that is never committed, the gate reads nothing under `paths.plans`, and `/sdd-finalize` is retired because nothing is left to sweep; the close-out sets the requirement to `shipped` in its own PR. `docs/upgrading.md` describes the move from 0.6.x. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
 - Docs: `README.md` restructured into intro, fit and requirements paragraphs, a table of contents, and `Installation`, `Releases`, `Development`, `Documentation` sections; badge row added, including the catalog version.
 - Docs: each `docs/` page opens with an orienting paragraph under a sentence-case H1; `docs/testing.md` documents the Vale prose job and the CI triggers; `docs/versioning.md` adds a release step for the README version badge.
 

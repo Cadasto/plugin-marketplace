@@ -12,7 +12,7 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 ## [1.12.0] - 2026-09-30
 
 ### Changed
-- Manifest: `sdd` repinned to **v0.8.0**: review findings now live in a git-ignored file per branch, with three severities and a budget of one review pass before the maintainer's review and one after it, and a new `sdd-pr` tool mirrors the critical and important ones to pull-request threads on GitHub or Azure DevOps; a second profile, `informative`, keeps `docs/` as a knowledge base bound by one constitution document; `/sdd-archive` becomes `/sdd-deliver --close-out`, and the plan template and `paths.plans` are removed. `docs/upgrading.md` describes the move from 0.7.x. The entry's `description` follows the plugin manifest; `keywords` are unchanged. `version` and `source.ref` moved together.
+- Manifest: `sdd` repinned to **v0.8.0**: review findings now live in a git-ignored file per branch, with three severity levels and at most two review passes, one before the maintainer reviews and one after, and a new `sdd-pr` tool mirrors the critical and important ones to pull-request threads on GitHub or Azure DevOps; a second profile, `informative`, keeps `docs/` as a knowledge base bound by one constitution document; `/sdd-archive` becomes `/sdd-deliver --close-out`, and the plan template and `paths.plans` are removed. `docs/upgrading.md` describes the move from 0.7.x. The entry's `description` follows the plugin manifest; `keywords` are unchanged. `version` and `source.ref` moved together.
 
 ## [1.11.0] - 2026-09-27
 

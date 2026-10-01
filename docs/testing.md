@@ -1,6 +1,6 @@
 # Testing and validation
 
-This page is for maintainers checking a catalog change before it merges or ships: what each automated check covers, what CI runs, and the manual install test that validation cannot replace. The repository holds manifests only (no build step, no package manager, no runtime), so testing means proving the catalog is well-formed and internally consistent, and that what it points at installs in Claude Code.
+This page is for maintainers checking a catalog change before it merges or ships: what each automated check covers, what CI runs, and the manual install test that validation cannot replace. The catalog is a set of manifests. `scripts/validate.py` checks that they are well-formed and internally consistent, and a manual install is still required to prove a pin installs in Claude Code. The public site is a separate MkDocs build; [site.md](site.md) owns that check.
 
 ## Automated checks
 
@@ -58,9 +58,11 @@ CI also lints the human-facing prose with [Vale](https://vale.sh), configured in
 
 ```bash
 vale sync
-vale --minAlertLevel=error .
+vale --minAlertLevel=error --glob='!{.fetched,site,styles}/**' .
 ```
+
+The glob skips `.fetched/`, `site/`, and the downloaded Vale packages under `styles/`. Those are generated. The vocabulary in `styles/config/` stays tracked, and Vale reads it because `StylesPath` points at it; the glob only keeps it out of the prose run.
 
 ## CI
 
-`.github/workflows/validate.yml` runs two jobs on every pull request and every push to `main`: `validate` runs `scripts/validate.py`, and `prose` runs the Vale check above. Because users track this repository's **default branch** (a catalog cannot pin itself), a broken `main` is live immediately. Keep `main` releasable at all times, and let CI gate the merge.
+`.github/workflows/validate.yml` runs two jobs on every pull request and every push to `main`: `validate` runs `scripts/validate.py`, and `prose` runs the Vale check above. `.github/workflows/docs-ci.yml` runs `make docs-check` on pull requests into `main`. `.github/workflows/docs-site.yml` publishes the site from `main`. Because users track this repository's **default branch** (a catalog cannot pin itself), a broken `main` is live immediately. Keep `main` releasable at all times, and let CI gate the merge.

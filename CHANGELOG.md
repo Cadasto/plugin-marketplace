@@ -11,6 +11,10 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+### Added
+- Docs: public documentation site (MkDocs Material, `docs-theme`), with `Makefile` targets `docs-serve` and `docs-check`, and `docker-compose.yml` for the local preview.
+- CI: `docs-ci.yml` gates pull requests with `make docs-check`; `docs-site.yml` publishes `main` to GitHub Pages.
+
 ## [1.14.0] - 2026-10-01
 
 ### Changed

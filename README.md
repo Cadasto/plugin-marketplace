@@ -10,6 +10,8 @@ The [Claude Code](https://docs.claude.com/en/docs/claude-code) plugin catalog ma
 
 This repository is a catalog only. Each plugin lives in its own repository and is listed here pinned to a release tag, so an install gives you a released version. The source of truth is `.claude-plugin/marketplace.json`; `.cursor-plugin/marketplace.json` is generated from it for field parity. Every listed plugin also ships a [Cursor](https://cursor.com/docs/plugins) manifest, but Cursor installs each plugin from that plugin's own repository, not from this catalog.
 
+The same repository builds the public site: what each plugin is for, and how to add the marketplace. `make docs-serve` previews it at <http://127.0.0.1:8000> (Docker). GitHub Pages publishes `main` to <https://cadasto.github.io/plugin-marketplace/> when the repository's Pages source is GitHub Actions. See [docs/site.md](docs/site.md).
+
 **Requirements.** Claude Code with the `/plugin` command, and network access to GitHub: each plugin is fetched from its `Cadasto/…` repository at the pinned tag. Cursor users install from each plugin's repository instead; see [Cursor](#cursor). Individual plugins state their own host requirements in their repositories. Maintaining the catalog needs Python 3 (the validator uses only the standard library).
 
 ## Table of contents
@@ -78,7 +80,7 @@ python3 scripts/validate.py --fix
 
 Before committing, also run `claude plugin validate .`, Claude Code's own schema check; it warns on unknown fields and is not part of CI.
 
-CI runs the same script, plus a Vale prose lint, on every pull request and every push to `main`. See [docs/testing.md](docs/testing.md) for what each check covers, [docs/authoring.md](docs/authoring.md) for the entry format, and [docs/versioning.md](docs/versioning.md) for the release steps.
+CI runs the same script, plus a Vale prose lint, on every pull request and every push to `main`. The site has its own check, `make docs-check`. See [docs/testing.md](docs/testing.md) for what each check covers, [docs/authoring.md](docs/authoring.md) for the entry format, [docs/site.md](docs/site.md) for the site build, and [docs/versioning.md](docs/versioning.md) for the release steps.
 
 ## Documentation
 
@@ -88,6 +90,7 @@ CI runs the same script, plus a Vale prose lint, on every pull request and every
 | [docs/authoring.md](docs/authoring.md) | The catalog entry format, and adding, updating, renaming, or removing a plugin |
 | [docs/testing.md](docs/testing.md) | Validating the manifests and smoke-testing a real install |
 | [docs/versioning.md](docs/versioning.md) | How the catalog is versioned, and the release procedure |
+| [docs/site.md](docs/site.md) | How the public site is built, pinned, and published |
 | [CHANGELOG.md](CHANGELOG.md) | What changed in each catalog release |
 
 [AGENTS.md](AGENTS.md) is the working brief for AI assistants maintaining this repository.

@@ -1,0 +1,29 @@
+{#-
+  The theme's own `main.html` is `{% extends "base.html" %}`. Replacing it
+  loses no theme content. `home.html` extends this file, which is why the
+  landing page picks the structured data up too.
+
+  Emitted on the landing page only. Values come from config, and `tojson`
+  does the quoting.
+-#}
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {%- if page and page.is_homepage %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": {{ config.site_name | tojson }},
+        "url": {{ config.site_url | tojson }},
+        "description": {{ config.site_description | trim | tojson }},
+        "publisher": {
+          "@type": "Organization",
+          "name": "Cadasto B.V.",
+          "url": "https://www.cadasto.com/"
+        }
+      }
+    </script>
+  {%- endif %}
+{% endblock %}

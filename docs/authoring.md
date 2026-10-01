@@ -55,14 +55,15 @@ Every entry carries the full set of fields. None are optional here: `/plugin` us
 3. Add a matching row to the README table, in the same position.
 4. Bump `metadata.version` and add a `CHANGELOG.md` entry ([versioning.md](versioning.md)).
 5. `python3 scripts/validate.py --fix`
+6. Point `sources.json` at the same `repo` and `ref`, and add `pages/plugins/<name>.md` plus a nav entry in `mkdocs.yml`. The site build fails when the pin disagrees. See [site.md](site.md).
 
 ## Updating a plugin to a new release
 
-The plugin repo tagging a release does **not** ship it; pinned entries mean users see nothing until this catalog moves. Bump `version` and `source.ref` together (validation rejects a mismatch), then bump `metadata.version` and record it in the changelog. Nothing in the validator reaches the network, so [check the tag exists on the remote](testing.md#verifying-a-pin-before-committing) before committing.
+The plugin repo tagging a release does **not** ship it; pinned entries mean users see nothing until this catalog moves. Bump `version` and `source.ref` together (validation rejects a mismatch), then bump `metadata.version` and record it in the changelog. Move the matching `sources.json` `ref` in the same change. Nothing in the validator reaches the network, so [check the tag exists on the remote](testing.md#verifying-a-pin-before-committing) before committing. The site fetches that plugin's README at the new tag; see [site.md](site.md).
 
 ## Renaming or removing a plugin
 
-Both break `<name>@cadasto` for everyone who has it installed, and are **major** catalog bumps. Removing also orphans installs rather than uninstalling them, so say what replaced it in the changelog. Claude Code supports a top-level `renames` map for the rename case (Anthropic's own marketplace uses one); prefer that over a bare rename if continuity matters.
+Both break `<name>@cadasto` for everyone who has it installed, and are **major** catalog bumps. Removing also orphans installs rather than uninstalling them, so say what replaced it in the changelog. Claude Code supports a top-level `renames` map for the rename case (Anthropic's own marketplace uses one); prefer that over a bare rename if continuity matters. Rename or remove the `sources.json` entry, the page under `pages/plugins/`, and the nav entry in the same change.
 
 ## Marketplace-level fields
 

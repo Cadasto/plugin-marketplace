@@ -1,0 +1,92 @@
+{
+  "$comment": [
+    "Plugin READMEs and the brand layer, pulled at build time so this site",
+    "never keeps a second copy of something that is canonical elsewhere.",
+    "Each sources entry's repo and ref must match that plugin's source in",
+    ".claude-plugin/marketplace.json. scripts/catalog_pins.py fails the build",
+    "when they differ. Bump a ref only in the same change as the catalog pin."
+  ],
+  "theme": {
+    "$comment": [
+      "Cadasto/docs-theme files written onto their live MkDocs paths. Those",
+      "destinations are gitignored. ref is the commit a release tag points",
+      "at rather than the tag itself: two of these files are Jinja templates",
+      "that the build executes, docs-site.yml rebuilds weekly on a schedule,",
+      "and a tag can be moved, so a tag would let the published site change",
+      "with nothing in this repository recording it. To pick up a brand",
+      "release, resolve its tag to a commit and replace ref:",
+      "  gh api repos/Cadasto/docs-theme/commits/<tag> --jq .sha",
+      "(use that, not git/ref/tags: for an annotated tag the latter",
+      "returns the tag object's sha, which raw.githubusercontent 404s.)",
+      "ref_tag is documentation only; the sync script does not read it.",
+      "Each file also records the sha256 of its bytes at that commit."
+    ],
+    "repo": "Cadasto/docs-theme",
+    "ref": "3b8cf8213753b494c306bb4f6dcd494c124d5489",
+    "ref_tag": "v0.4.0",
+    "files": [
+      {"path": "tokens.css", "dest": "pages/stylesheets/tokens.css",
+       "sha256": "8ebedfc1e559b946ebb42105f70ea68aa1dd23a76e58a538fa85f8cfb8c1f375"},
+      {"path": "material.css", "dest": "pages/stylesheets/material.css",
+       "sha256": "d67e7f73fafbdb9b42766fc84193b40abc74d7283cc14ac273f3e6352566f117"},
+      {"path": "landing.css", "dest": "pages/stylesheets/landing.css",
+       "sha256": "cee7bb9619a363001d07ac651af340752fde731557d35321ae47324e18023c3f"},
+      {"path": "overrides/home.html", "dest": "overrides/home.html",
+       "sha256": "c59fc6911c2a711496136e28e8821de1bcb18de1373fb59f2464bb487a48676f"},
+      {"path": "overrides/partials/copyright.html", "dest": "overrides/partials/copyright.html",
+       "sha256": "3362f546bc4289c1c69d7e35b5407b21dde4f9428a5996d416024888404b10ae"},
+      {"path": "assets/cadasto-mark.png", "dest": "pages/assets/cadasto-mark.png",
+       "sha256": "f982c8ddf03346ce614d636588f34e8c33f356c08cd892933b6f7c42f9645b75"}
+    ]
+  },
+  "sources": [
+    {
+      "name": "openehr-assistant",
+      "repo": "Cadasto/openehr-assistant-plugin",
+      "ref": "v0.9.2",
+      "path": "README.md",
+      "heading_shift": 1,
+      "drop_first_heading": true
+    },
+    {
+      "name": "openehr-assistant-dev",
+      "repo": "Cadasto/openehr-assistant-dev-plugin",
+      "ref": "v0.3.0",
+      "path": "README.md",
+      "heading_shift": 1,
+      "drop_first_heading": true
+    },
+    {
+      "name": "go-coding",
+      "repo": "Cadasto/go-coding-plugin",
+      "ref": "v0.6.1",
+      "path": "README.md",
+      "heading_shift": 1,
+      "drop_first_heading": true
+    },
+    {
+      "name": "php-coding",
+      "repo": "Cadasto/php-coding-plugin",
+      "ref": "v0.1.0",
+      "path": "README.md",
+      "heading_shift": 1,
+      "drop_first_heading": true
+    },
+    {
+      "name": "sdd",
+      "repo": "Cadasto/sdd-plugin",
+      "ref": "v0.9.0",
+      "path": "README.md",
+      "heading_shift": 1,
+      "drop_first_heading": true
+    },
+    {
+      "name": "docs-editing",
+      "repo": "Cadasto/docs-editing-plugin",
+      "ref": "v0.4.1",
+      "path": "README.md",
+      "heading_shift": 1,
+      "drop_first_heading": true
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cadasto.github.io/plugin-marketplace/sitemap.xml

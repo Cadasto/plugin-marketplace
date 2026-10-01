@@ -15,6 +15,7 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 - Plugins: `php-coding`: idiomatic PHP coding standards (`Cadasto/php-coding-plugin`), pinned to `v0.1.0`.
 
 ### Changed
+- Manifest: `docs-editing` repinned to **v0.4.1**: a docs-only release; the README follows the `go-coding` layout without the `Status` column, and the README and `docs/` pages correct statements that had drifted from the plugin's tree. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
 - Manifest: marketplace `description` names the PHP coding standards plugin.
 
 ## [1.12.0] - 2026-09-30

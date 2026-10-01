@@ -32,6 +32,13 @@ openehr-assistant-dev
 go-coding
 sdd
 docs-editing
+php-coding
+MkDocs
+Comeniusstraat
+Laravel
+toolchain
+READMEs
+Dev
 subagents?
 [Rr]epin(ned|ning)?
 [Bb]ackfill(ed|ing)?

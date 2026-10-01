@@ -29,4 +29,7 @@ jobs:
       # Downloads the style packages named in .vale.ini; the vocabulary is in-repo.
       - run: vale sync
       # Gates on errors only. Warnings and suggestions are a backlog, not a merge blocker.
-      - run: vale --minAlertLevel=error .
+      # The glob matches the command in docs/testing.md. `.fetched/`, `site/`, and
+      # downloaded style packages are generated; CI checks out none of them, and
+      # the glob keeps a local run in step with this one.
+      - run: vale --minAlertLevel=error --glob='!{.fetched,site,styles}/**' .

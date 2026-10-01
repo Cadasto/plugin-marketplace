@@ -1,0 +1,60 @@
+name: Docs site
+
+# Publishing only. Pull requests are gated by docs-ci.yml, which runs the same
+# `make docs-check` without the Pages permissions or the deploy step.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  # The site embeds plugin READMEs and the docs-theme brand layer at pinned
+  # refs, so a weekly rebuild surfaces a file that moved or a tag that no
+  # longer matches its recorded sha256.
+  schedule:
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build and verify the site
+        env:
+          # php-coding-plugin is private. The default GITHUB_TOKEN cannot read
+          # it. DOCS_SYNC_TOKEN is a fine-grained PAT with contents read on
+          # that repository. See docs/site.md.
+          GH_TOKEN: ${{ secrets.DOCS_SYNC_TOKEN }}
+        run: make docs-check
+
+      # v4 stopped including dotfiles in the artifact. The build emits none.
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    # workflow_dispatch can be fired from any branch; only main is published.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

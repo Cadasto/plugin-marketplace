@@ -6,6 +6,7 @@ Claude
 Anthropic
 Cursor
 SchemaStore
+PHPStan
 SemVer
 CHANGELOG|[Cc]hangelog
 [Kk]ebab-case

@@ -11,6 +11,8 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.13.0] - 2026-10-01
+
 ### Added
 - Plugins: `php-coding`: idiomatic PHP coding standards (`Cadasto/php-coding-plugin`), pinned to `v0.1.0`.
 

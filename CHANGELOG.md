@@ -11,6 +11,11 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.14.0] - 2026-10-01
+
+### Changed
+- Manifest: `sdd` repinned to **v0.9.0**: the findings file moves into the clone's git directory and `sdd-pr` makes every write to it, a review reads the whole branch so a second agent or model gives a second opinion, and every pass leaves a short summary on the pull request; a committed plan carries `kind: plan` and nothing reads or cites it; delivery keeps its state in a notes file and names its worker branches. `docs/upgrading.md` describes the move from 0.8.1. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+
 ## [1.13.0] - 2026-10-01
 
 ### Added

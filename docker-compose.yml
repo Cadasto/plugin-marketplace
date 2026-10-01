@@ -1,0 +1,27 @@
+# Local preview of the documentation site.
+#
+# `make docs-serve` (or `docker compose up`) fetches the pinned brand layer
+# and plugin READMEs, then serves http://127.0.0.1:8000 .
+# `make docs-check` is the strict build CI runs. It overrides this entrypoint
+# and passes the invoking user's uid, so build output is not left root-owned.
+#
+# The image tag is the same pin openehr-assistant and openehr-sdk-go build with.
+
+name: plugin-marketplace
+
+services:
+  docs:
+    image: ${MKDOCS_IMAGE:-squidfunk/mkdocs-material:9.7.6}
+    user: "${DOCKER_UID:-1000}:${DOCKER_GID:-1000}"
+    working_dir: /docs
+    volumes:
+      - .:/docs
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+      # Read access for private plugin repositories. Empty for a fully public fetch.
+      GH_TOKEN: ${GH_TOKEN:-}
+    tty: true
+    stdin_open: true
+    entrypoint: ["/bin/sh", "scripts/docs-serve.sh"]

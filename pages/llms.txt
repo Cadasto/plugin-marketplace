@@ -1,0 +1,33 @@
+# Cadasto Plugin Marketplace
+
+> Plugins that teach Claude Code and Cursor a specific job: openEHR modelling,
+> spec-driven development, Go and PHP standards, and documentation. Add the
+> marketplace once in Claude Code. Each install is the release tag the catalog
+> pins. Cursor installs each plugin from its own repository.
+
+Cadasto B.V. maintains the catalog. The marketplace name is `cadasto`. Claude
+Code installs a plugin as `<plugin>@cadasto` after
+`/plugin marketplace add Cadasto/plugin-marketplace`. The source of truth for
+which release is current is `.claude-plugin/marketplace.json` in
+[Cadasto/plugin-marketplace](https://github.com/Cadasto/plugin-marketplace).
+
+## Documentation
+
+- [Home](https://cadasto.github.io/plugin-marketplace/): the plugins, the two install paths, and the add command.
+- [Quick start](https://cadasto.github.io/plugin-marketplace/quick-start/): add the marketplace in Claude Code and install one plugin.
+- [Choose](https://cadasto.github.io/plugin-marketplace/choose/): which plugin matches which job, and what each one needs.
+- [Plugins](https://cadasto.github.io/plugin-marketplace/plugins/): every catalog entry, its pinned tag, and its description.
+- [openEHR Assistant](https://cadasto.github.io/plugin-marketplace/plugins/openehr-assistant/): archetypes, templates, compositions, AQL, CKM, and specification lookup.
+- [openEHR Assistant Dev](https://cadasto.github.io/plugin-marketplace/plugins/openehr-assistant-dev/): maintainer tools for the openEHR Assistant server and plugin.
+- [Go coding standards](https://cadasto.github.io/plugin-marketplace/plugins/go-coding/): Go formatting, errors, concurrency, testing, and layout.
+- [PHP coding standards](https://cadasto.github.io/plugin-marketplace/plugins/php-coding/): PHP 8.4, PER Coding Style, and PHPStan level 8.
+- [Spec-driven development](https://cadasto.github.io/plugin-marketplace/plugins/sdd/): requirements, RFC-2119 specifications, ADRs, traceability, and delivery.
+- [Docs editing](https://cadasto.github.io/plugin-marketplace/plugins/docs-editing/): technical writing, copy editing, marketing copy, SEO, and AI citability.
+- [Install](https://cadasto.github.io/plugin-marketplace/install/): add, update, inspect, Cursor, and a local working copy.
+- [Contributing](https://cadasto.github.io/plugin-marketplace/contributing/): build the site locally and where a change belongs.
+- [Contact](https://cadasto.github.io/plugin-marketplace/contact/): Cadasto B.V. email, the reseller sales route, and registered details.
+
+## Optional
+
+- [CHANGELOG.md](https://github.com/Cadasto/plugin-marketplace/blob/main/CHANGELOG.md): catalog releases.
+- [Cadasto](https://www.cadasto.com/)

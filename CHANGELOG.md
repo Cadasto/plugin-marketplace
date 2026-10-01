@@ -16,6 +16,7 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ### Changed
 - Manifest: `docs-editing` repinned to **v0.4.1**: a docs-only release; the README follows the `go-coding` layout without the `Status` column, and the README and `docs/` pages correct statements that had drifted from the plugin's tree. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Manifest: `go-coding` repinned to **v0.6.1**: a docs-only release; the README drops the `Status` column and groups its components by kind, `docs/testing.md` lists what the validator checks, including its three Go-specific invariants, and the `docs/` pages correct statements that had drifted from the plugin's tree. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
 - Manifest: marketplace `description` names the PHP coding standards plugin.
 
 ## [1.12.0] - 2026-09-30

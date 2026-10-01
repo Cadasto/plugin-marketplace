@@ -9,6 +9,14 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 Versions here track the **catalog**, not the plugins it lists; see [docs/versioning.md](docs/versioning.md).
 
+## [Unreleased]
+
+### Added
+- Plugins: `php-coding`: idiomatic PHP coding standards (`Cadasto/php-coding-plugin`), pinned to `v0.1.0`.
+
+### Changed
+- Manifest: marketplace `description` names the PHP coding standards plugin.
+
 ## [1.12.0] - 2026-09-30
 
 ### Changed

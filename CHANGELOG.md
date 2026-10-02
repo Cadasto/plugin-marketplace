@@ -11,9 +11,14 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.15.0] - 2026-10-02
+
 ### Added
 - Docs: public documentation site (MkDocs Material, `docs-theme`), with `Makefile` targets `docs-serve` and `docs-check`, and `docker-compose.yml` for the local preview.
 - CI: `docs-ci.yml` gates pull requests with `make docs-check`; `docs-site.yml` publishes `main` to GitHub Pages.
+
+### Changed
+- Manifest: `sdd` repinned to **v0.10.0**: the pull request's body describes the branch only, suggestions left at merge go to a committed `docs/backlog.md`, and a delivery runs its tasks in sequence with a parallel wave sharing one branch. `docs/upgrading.md` describes the move from 0.9.0. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
 
 ## [1.14.0] - 2026-10-01
 

@@ -11,6 +11,11 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.16.0] - 2026-10-05
+
+### Changed
+- Manifest: `sdd` repinned to **v0.11.0**: a review's suggestions stay on the pull request in a comment of their own per pass, only leads are filed, and after merge `/sdd-triage --backlog` carries them to `docs/backlog.md` instead of the close-out. `docs/upgrading.md` describes the move from 0.10.0. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+
 ## [1.15.0] - 2026-10-02
 
 ### Added

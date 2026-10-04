@@ -1,7 +1,7 @@
 # Cadasto Plugin Marketplace
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.15.0-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.16.0-blue)](CHANGELOG.md)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-marketplace-D97757?logo=anthropic&logoColor=white)](https://docs.claude.com/en/docs/claude-code/plugins)
 [![Cursor](https://img.shields.io/badge/Cursor-per--plugin_install-000?logo=cursor&logoColor=white)](https://cursor.com/docs/plugins)
 [![Keep a Changelog](https://img.shields.io/badge/Keep%20a%20Changelog-1.1.0-E05735)](CHANGELOG.md)

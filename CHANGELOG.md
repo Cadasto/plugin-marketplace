@@ -11,6 +11,11 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.16.2] - 2026-10-07
+
+### Changed
+- Manifest: `sdd` repinned to **v0.11.1**: a fix release; the ADR index fills its *Resolves / amends* column from a Traceability label in Markdown emphasis (`- **Amends:** REQ-X`), which it had left as `—`. `docs/upgrading.md` describes the move from 0.11.0. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+
 ## [1.16.1] - 2026-10-06
 
 ### Changed

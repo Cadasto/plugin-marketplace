@@ -11,6 +11,11 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.16.1] - 2026-10-06
+
+### Changed
+- Manifest: `go-coding` repinned to **v0.6.2**: a fix release; the post-edit skill nudge now reaches the model under Claude Code (it had been shown only to the user), the hook commands quote the plugin path, `go-testing` gains the can-fail rule its description already promised, and the skills and the reviewer agent drop guidance they stated more than once. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+
 ## [1.16.0] - 2026-10-05
 
 ### Changed

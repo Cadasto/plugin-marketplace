@@ -11,6 +11,11 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.17.0] - 2026-10-11
+
+### Changed
+- Manifest: `sdd` repinned to **v0.12.0**: findings are graded by harm wherever they are (a defect in code or a document the branch did not change keeps its severity as `outside` and blocks nothing, and a document's form is a suggestion), a review pass reuses the gate's log and runs one at a time, the pass over the fixes waits for the maintainer's review, `/sdd-triage --backlog` consolidates the backlog into themes, and `/sdd-deliver` opens a pull request ready for review, a draft only on request. `docs/upgrading.md` describes the move from 0.11.x, which adds a permission rule for `sdd-pr`. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+
 ## [1.16.2] - 2026-10-07
 
 ### Changed

@@ -11,6 +11,11 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.17.1] - 2026-10-11
+
+### Changed
+- Manifest: `sdd` repinned to **v0.12.1**: `sdd-check generate` keeps a wrapped `Resolves:` or `Amends:` bullet whole in the ADR index, where it kept the first line only. Only the vendored gate changed; `docs/upgrading.md` describes the move from 0.12.0. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+
 ## [1.17.0] - 2026-10-11
 
 ### Changed

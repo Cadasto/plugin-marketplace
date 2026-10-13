@@ -14,6 +14,11 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 ### Fixed
 - CI: the `prose` job accepts `maintainer's`, which failed Vale's spelling check in the 1.17.0 notes and left `validate` red since.
 
+## [1.19.0] - 2026-10-13
+
+### Changed
+- Manifest: `sdd` repinned to **v0.14.0**: the close-out is its own skill, `/sdd-close`, which ships the requirement in the pull request, asks once whether to carry leftovers into that pull request, and after the merge runs `sdd-pr clean`; `/sdd-deliver` ends at the maintainer's review. `docs/upgrading.md` describes the move from 0.13.x. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+
 ## [1.18.0] - 2026-10-13
 
 ### Changed

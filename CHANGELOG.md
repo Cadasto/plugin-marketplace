@@ -11,6 +11,11 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.18.0] - 2026-10-13
+
+### Changed
+- Manifest: `sdd` repinned to **v0.13.0**: a review pass starts with one call (`sdd-pr start`), which writes each reviewer's hunks and one shared brief and prints the dispatch plan; passes by different hosts run side by side; a panel host gets `/sdd-review --pr N` instead of a block to paste; each pass is one comment on the pull request; delivery reconciles documents on both profiles, the close-out writes the changelog line and the acceptance ticks, and fix rounds go to a new worker instead of a resumed one. `docs/upgrading.md` describes the move from 0.12.x, which adds `review_panel.external` by hand for a reviewer that never loads the plugin. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+
 ## [1.17.1] - 2026-10-11
 
 ### Changed

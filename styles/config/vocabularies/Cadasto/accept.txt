@@ -14,6 +14,7 @@ CHANGELOG|[Cc]hangelog
 [Pp]lugins?
 [Rr]epos?
 [Mm]etadata
+[Mm]aintainer's
 [Cc]onfigs?
 [Ss]tdlib
 [Vv]alidator

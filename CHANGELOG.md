@@ -11,6 +11,9 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+### Fixed
+- CI: the `prose` job accepts `maintainer's`, which failed Vale's spelling check in the 1.17.0 notes and left `validate` red since.
+
 ## [1.19.0] - 2026-10-13
 
 ### Changed

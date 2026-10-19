@@ -11,6 +11,14 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.20.0] - 2026-10-19
+
+### Changed
+- Manifest: `sdd` repinned to **v0.15.0**: a review pass reads less and blocks on less (the conformance reviewer guards only the MUSTs a change wrote, `agents.skip` keeps data from every reviewer, no re-review for a fix that only rewords text), findings and PR bodies get a length limit, and the review panel is removed. `docs/upgrading.md` describes the move from 0.14.x. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Manifest: `go-coding` repinned to **v0.7.0**: `go-reviewer` reviews only `.go` files and `go.mod`, and two skill descriptions are shorter. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Manifest: `php-coding` repinned to **v0.2.0**: `php-reviewer` follows the agent description form and reviews only `.php` files and `composer.json`. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Docs: `sources.json` pulls the three READMEs at the new tags.
+
 ### Fixed
 - CI: the `prose` job accepts `maintainer's`, which failed Vale's spelling check in the 1.17.0 notes and left `validate` red since.
 

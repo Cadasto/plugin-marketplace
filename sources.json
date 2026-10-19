@@ -59,7 +59,7 @@
     {
       "name": "go-coding",
       "repo": "Cadasto/go-coding-plugin",
-      "ref": "v0.6.2",
+      "ref": "v0.7.0",
       "path": "README.md",
       "heading_shift": 1,
       "drop_first_heading": true
@@ -67,7 +67,7 @@
     {
       "name": "php-coding",
       "repo": "Cadasto/php-coding-plugin",
-      "ref": "v0.1.0",
+      "ref": "v0.2.0",
       "path": "README.md",
       "heading_shift": 1,
       "drop_first_heading": true
@@ -75,7 +75,7 @@
     {
       "name": "sdd",
       "repo": "Cadasto/sdd-plugin",
-      "ref": "v0.14.0",
+      "ref": "v0.15.0",
       "path": "README.md",
       "heading_shift": 1,
       "drop_first_heading": true

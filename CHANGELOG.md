@@ -11,6 +11,12 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.21.0] - 2026-10-25
+
+### Changed
+- Manifest: `sdd` repinned to **v0.16.0**: the maintainer's instruction outranks a specification sentence and the lane the maintainer names is final; RFC-2119 force goes only to what a caller relies on, with a guard proof only for a new obligation; wrong behaviour is never a suggestion, a defect in a changed file is fixed there, and the backlog stays short; the per-task review is off by default and the document reviewer runs only when something normative changed; the PR body drops its checklist. `docs/upgrading.md` describes the move from 0.15.x. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Docs: `sources.json` pulls the `sdd` README at the new tag.
+
 ## [1.20.0] - 2026-10-19
 
 ### Changed

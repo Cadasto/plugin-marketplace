@@ -11,6 +11,10 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+### Added
+- Plugins: `pgsql-coding` at **v0.1.0**, PostgreSQL 18 coding standards: queries, `jsonb`, schema, indexing, plan analysis and safe migrations, with a SQL reviewer and an `EXPLAIN` plan analyst. Category `development`, beside `go-coding` and `php-coding`.
+- Docs: `pgsql-coding` gets a site page, a nav entry, an `llms.txt` line, a home-page card and rows in `pages/choose.md`; `sources.json` pulls its README at `v0.1.0`.
+
 ### Changed
 - Manifest: `sdd` repinned to **v0.17.0**: a retired requirement keeps its section in place and the drift gate stops warning on it; `/sdd-specify` retires a requirement on request. `docs/upgrading.md` describes the move from 0.16.x. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
 - Manifest: `go-coding` repinned to **v0.8.0**: the Go standards move to a Go 1.27+ floor, and Go symbol questions (where defined, who uses, implements or calls it) go to the `gopls` command line. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.

@@ -88,6 +88,7 @@ nav:
       - openEHR Assistant Dev: plugins/openehr-assistant-dev.md
       - Go coding standards: plugins/go-coding.md
       - PHP coding standards: plugins/php-coding.md
+      - PostgreSQL coding standards: plugins/pgsql-coding.md
       - Spec-driven development: plugins/sdd.md
       - Docs editing: plugins/docs-editing.md
   - Install: install.md

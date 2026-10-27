@@ -73,6 +73,14 @@
       "drop_first_heading": true
     },
     {
+      "name": "pgsql-coding",
+      "repo": "Cadasto/pgsql-coding-plugin",
+      "ref": "v0.1.0",
+      "path": "README.md",
+      "heading_shift": 1,
+      "drop_first_heading": true
+    },
+    {
       "name": "sdd",
       "repo": "Cadasto/sdd-plugin",
       "ref": "v0.17.0",

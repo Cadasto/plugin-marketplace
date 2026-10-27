@@ -21,6 +21,7 @@ which release is current is `.claude-plugin/marketplace.json` in
 - [openEHR Assistant Dev](https://cadasto.github.io/plugin-marketplace/plugins/openehr-assistant-dev/): maintainer tools for the openEHR Assistant server and plugin.
 - [Go coding standards](https://cadasto.github.io/plugin-marketplace/plugins/go-coding/): Go formatting, errors, concurrency, testing, and layout.
 - [PHP coding standards](https://cadasto.github.io/plugin-marketplace/plugins/php-coding/): PHP 8.4, PER Coding Style, and PHPStan level 8.
+- [PostgreSQL coding standards](https://cadasto.github.io/plugin-marketplace/plugins/pgsql-coding/): PostgreSQL 18 queries, jsonb, schema, indexing, plan analysis, and safe migrations.
 - [Spec-driven development](https://cadasto.github.io/plugin-marketplace/plugins/sdd/): requirements, RFC-2119 specifications, ADRs, traceability, and delivery.
 - [Docs editing](https://cadasto.github.io/plugin-marketplace/plugins/docs-editing/): technical writing, copy editing, marketing copy, SEO, and AI citability.
 - [Install](https://cadasto.github.io/plugin-marketplace/install/): add, update, inspect, Cursor, and a local working copy.

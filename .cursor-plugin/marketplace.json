@@ -114,6 +114,33 @@
       }
     },
     {
+      "name": "pgsql-coding",
+      "displayName": "PostgreSQL Coding Standards",
+      "description": "PostgreSQL coding standards for AI assistants: queries, jsonb, schema, indexing, performance analysis, safe migrations. PostgreSQL 18 and later.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Cadasto B.V.",
+        "url": "https://github.com/Cadasto"
+      },
+      "homepage": "https://github.com/Cadasto/pgsql-coding-plugin",
+      "license": "MIT",
+      "category": "development",
+      "keywords": [
+        "postgresql",
+        "sql",
+        "jsonb",
+        "indexing",
+        "query-optimization",
+        "migrations",
+        "coding-standards"
+      ],
+      "source": {
+        "source": "github",
+        "repo": "Cadasto/pgsql-coding-plugin",
+        "ref": "v0.1.0"
+      }
+    },
+    {
       "name": "sdd",
       "displayName": "Spec-Driven Development",
       "description": "Spec-Driven Development for AI assistants — requirements, RFC-2119 specs, and ADRs with stable identifiers, machine-checked traceability, and the delivery pipeline that runs on them: workers, review into a findings file, close-out; two profiles.",

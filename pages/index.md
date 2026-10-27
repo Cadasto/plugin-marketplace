@@ -1,9 +1,9 @@
 ---
 title: Cadasto plugins for Claude Code and Cursor
 description: >-
-  Six plugins for Claude Code and Cursor, each pinned to a release tag:
-  openEHR modelling, spec-driven development, Go and PHP standards, and
-  documentation. Add the marketplace once, then install by name.
+  Seven plugins for Claude Code and Cursor, each pinned to a release tag:
+  openEHR modelling, spec-driven development, Go, PHP and PostgreSQL
+  standards, and documentation. Add the marketplace once, then install by name.
 hide:
   - navigation
   - toc
@@ -81,6 +81,17 @@ Each skill names the tool that enforces a rule (`gofmt`, `go vet`, `golangci-lin
 PER Coding Style, PHPStan level 8, and PHP 8.4 idioms. A reviewer agent reports what the tools miss.
 
 [Plugin page](plugins/php-coding.md){ .md-button }
+
+</div>
+
+<div class="feature-card" markdown="1">
+
+:material-database:
+
+### PostgreSQL coding standards
+Queries, jsonb, schema, indexing, and safe migrations for PostgreSQL 18. Each skill names the tool that settles a rule (`EXPLAIN (ANALYZE, BUFFERS)`, squawk, `plpgsql_check`). A reviewer and a plan analyst report what they miss.
+
+[Plugin page](plugins/pgsql-coding.md){ .md-button }
 
 </div>
 

@@ -35,6 +35,7 @@ The same repository builds the public site: what each plugin is for, and how to 
 | [openehr-assistant-dev](https://github.com/Cadasto/openehr-assistant-dev-plugin) | Maintainer plugin for developing the openEHR Assistant MCP server and plugin — authoring guides, prompts, MCP tools, examples, and managing releases |
 | [go-coding](https://github.com/Cadasto/go-coding-plugin)                         | Idiomatic Go coding standards for AI assistants — formatting, errors, concurrency, testing, layout. |
 | [php-coding](https://github.com/Cadasto/php-coding-plugin)                       | Idiomatic PHP coding standards for AI assistants — PHP 8.4+, PER Coding Style, PHPStan level 8. |
+| [pgsql-coding](https://github.com/Cadasto/pgsql-coding-plugin)                   | PostgreSQL coding standards for AI assistants: queries, jsonb, schema, indexing, performance analysis, safe migrations. PostgreSQL 18 and later. |
 | [sdd](https://github.com/Cadasto/sdd-plugin)                                     | Spec-Driven Development for AI assistants — requirements, RFC-2119 specs, and ADRs with stable identifiers, machine-checked traceability, and the delivery pipeline that runs on them: workers, review into a findings file, close-out; two profiles. |
 | [docs-editing](https://github.com/Cadasto/docs-editing-plugin)                   | Human-facing documentation and content standards for AI assistants: technical writing, copy editing, AI-tell cleanup, marketing copy, SEO and AI citability, with claims grounded in cited evidence. |
 

@@ -11,6 +11,10 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+### Changed
+- Manifest: `sdd` repinned to **v0.17.0**: a retired requirement keeps its section in place and the drift gate stops warning on it; `/sdd-specify` retires a requirement on request. `docs/upgrading.md` describes the move from 0.16.x. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Docs: `sources.json` pulls the `sdd` README at the new tag.
+
 ## [1.21.0] - 2026-10-25
 
 ### Changed

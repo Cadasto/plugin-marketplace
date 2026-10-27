@@ -11,6 +11,8 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.22.0] - 2026-10-27
+
 ### Added
 - Plugins: `pgsql-coding` at **v0.1.0**, PostgreSQL 18 coding standards: queries, `jsonb`, schema, indexing, plan analysis and safe migrations, with a SQL reviewer and an `EXPLAIN` plan analyst. Category `development`, beside `go-coding` and `php-coding`.
 - Docs: `pgsql-coding` gets a site page, a nav entry, an `llms.txt` line, a home-page card and rows in `pages/choose.md`; `sources.json` pulls its README at `v0.1.0`.

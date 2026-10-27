@@ -17,7 +17,7 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ### Changed
 - Manifest: `sdd` repinned to **v0.17.0**: a retired requirement keeps its section in place and the drift gate stops warning on it; `/sdd-specify` retires a requirement on request. `docs/upgrading.md` describes the move from 0.16.x. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
-- Manifest: `go-coding` repinned to **v0.8.0**: the Go standards move to a Go 1.27+ floor, and Go symbol questions (where defined, who uses, implements or calls it) go to the `gopls` command line. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Manifest: `go-coding` repinned to **v0.8.1**: the Go standards move to a Go 1.27+ floor, and Go symbol questions (where defined, who uses, implements or calls it) go to the `gopls` command line. On Cursor, the session line and the skill nudge arrive as `additional_context`, the nudge on Cursor 3.9.8 or newer. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
 - Manifest: `php-coding` repinned to **v0.2.1**: on Cursor, the session-start and format-on-save hooks read the workspace from `CURSOR_PROJECT_DIR` instead of the plugin install, and the session line arrives as `additional_context`. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
 - Docs: `sources.json` pulls the `sdd` README at the new tag.
 - Docs: `sources.json` pulls the `go-coding` README at the new tag; `pages/choose.md` lists Go 1.27 and golangci-lint v2.13.0 or newer for `go-coding`.

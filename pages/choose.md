@@ -28,7 +28,7 @@ Every plugin installs from Markdown and JSON, with no build step. What differs i
 |---|---|---|
 | `openehr-assistant` | A reachable openEHR Assistant MCP server. The default install bundles a config for the hosted one. | The guide-first workflows have nothing to load. The `clinical-modeler` agent falls back to the offline reference material in the plugin. |
 | `openehr-assistant-dev` | Checkouts of the openEHR Assistant server and plugin repositories, the projects it maintains. | It has no other target. For clinical modelling, use `openehr-assistant`. |
-| `go-coding` | Go 1.26.4 or newer, with `gofmt`, `gofumpt`, `goimports`, and `gopls` on `PATH`, and golangci-lint v2 for full-tree linting. | The skills still guide the assistant. The format-on-save hook does nothing when no formatter is installed. |
+| `go-coding` | Go 1.27 or newer, with `gofmt`, `gofumpt`, `goimports`, and `gopls` on `PATH`, and golangci-lint v2.13.0 or newer for full-tree linting. | The skills still guide the assistant. The format-on-save hook does nothing when no formatter is installed. |
 | `php-coding` | PHP 8.4 or newer, with `php-cs-fixer`, `phpstan`, and `phpunit` in the project. | The skills still guide the assistant; nothing enforces them. Laravel framework code is outside this plugin. |
 | `sdd` | Python 3.9 or newer for the vendored drift gate, and a build entry point with a `spec-check` target. `gh`, or `az` with the `azure-devops` extension, mirrors findings to pull requests. | Everything runs on the local findings file. |
 | `docs-editing` | [Vale](https://vale.sh), so the prose rules are machine-checked. | The skills apply the standards by judgment, and the prose-lint hook stays silent. |

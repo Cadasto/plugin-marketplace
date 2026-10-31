@@ -2,7 +2,7 @@
   "name": "cadasto",
   "description": "AI-assistant plugins maintained by Cadasto B.V. — openEHR clinical modeling, spec-driven development, Go and PHP coding standards, and documentation and content standards.",
   "metadata": {
-    "version": "1.22.0"
+    "version": "1.23.0"
   },
   "owner": {
     "name": "Cadasto B.V.",

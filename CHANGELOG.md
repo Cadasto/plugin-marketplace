@@ -13,7 +13,9 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ### Changed
 - Manifest: `sdd` repinned to **v0.18.0**: workers start from a filled brief with a code map, and a mechanical task may run on a cheaper model; `/sdd-review` reads the whole branch unless asked for `--since-last`; an area-prefixed id may carry up to two sub-areas; and fixes align the references, the tools and the scaffold templates. `docs/upgrading.md` describes the move from 0.17.x. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
+- Manifest: `go-coding` repinned to **v0.9.0**: the `go-coding` skill bundles `gosym`, which answers a Go symbol question (where a symbol is defined, who uses, implements or calls it) in one shell call; the skills, the Cursor rule and `go-reviewer` route their lookups through it, and the session line names its path. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
 - Docs: `sources.json` pulls the `sdd` README at the new tag.
+- Docs: `sources.json` pulls the `go-coding` README at the new tag.
 
 ## [1.22.0] - 2026-10-27
 

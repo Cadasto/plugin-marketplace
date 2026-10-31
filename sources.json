@@ -59,7 +59,7 @@
     {
       "name": "go-coding",
       "repo": "Cadasto/go-coding-plugin",
-      "ref": "v0.8.1",
+      "ref": "v0.9.0",
       "path": "README.md",
       "heading_shift": 1,
       "drop_first_heading": true

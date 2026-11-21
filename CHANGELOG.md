@@ -11,6 +11,8 @@ Versions here track the **catalog**, not the plugins it lists; see [docs/version
 
 ## [Unreleased]
 
+## [1.24.0] - 2026-11-21
+
 ### Changed
 - Manifest: `sdd` repinned to **v0.19.0**: `sdd-check` and `sdd-pr` need Python 3.11 or newer and name an older one; `/sdd-deliver` opens every pull request as a draft and `/sdd-close` marks it ready when it pushes the close-out; a change amends the sentence that holds its topic in place, and a new ADR records only a decision nothing else covers. `docs/upgrading.md` describes the move from 0.18.x. The entry's `description` and `keywords` are unchanged. `version` and `source.ref` moved together.
 - Docs: `sources.json` pulls the `sdd` README at the new tag.

@@ -46,3 +46,5 @@ subagents?
 typo'd
 citability
 [Vv]endor(ed|ing|s)?
+jsonb
+[Ll]ookups?
